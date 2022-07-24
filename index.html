@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="plugin-pages plugin-id-default">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Docusaurus v2.0.0-rc.1">
+<title data-rh="true">Carbon Language</title><meta data-rh="true" property="og:title" content="Carbon Language"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://emlai.github.io/"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><link data-rh="true" rel="icon" href="/img/carbon-logo.png"><link data-rh="true" rel="canonical" href="https://emlai.github.io/"><link data-rh="true" rel="alternate" href="https://emlai.github.io/" hreflang="en"><link data-rh="true" rel="alternate" href="https://emlai.github.io/" hreflang="x-default"><script data-rh="true">function maybeInsertBanner(){window.__DOCUSAURUS_INSERT_BASEURL_BANNER&&insertBanner()}function insertBanner(){var n=document.getElementById("docusaurus-base-url-issue-banner-container");if(n){n.innerHTML='\n<div id="docusaurus-base-url-issue-banner" style="border: thick solid red; background-color: rgb(255, 230, 179); margin: 20px; padding: 20px; font-size: 20px;">\n   <p style="font-weight: bold; font-size: 30px;">Your Docusaurus site did not load properly.</p>\n   <p>A very common reason is a wrong site <a href="https://docusaurus.io/docs/docusaurus.config.js/#baseurl" style="font-weight: bold;">baseUrl configuration</a>.</p>\n   <p>Current configured baseUrl = <span style="font-weight: bold; color: red;">/</span>  (default value)</p>\n   <p>We suggest trying baseUrl = <span id="docusaurus-base-url-issue-banner-suggestion-container" style="font-weight: bold; color: green;"></span></p>\n</div>\n';var e=document.getElementById("docusaurus-base-url-issue-banner-suggestion-container"),s=window.location.pathname,r="/"===s.substr(-1)?s:s+"/";e.innerHTML=r}}window.__DOCUSAURUS_INSERT_BASEURL_BANNER=!0,document.addEventListener("DOMContentLoaded",maybeInsertBanner)</script><link rel="stylesheet" href="/assets/css/styles.0141378e.css">
+<link rel="preload" href="/assets/js/runtime~main.635df7c8.js" as="script">
+<link rel="preload" href="/assets/js/main.7a2d97d0.js" as="script">
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
+<div id="docusaurus-base-url-issue-banner-container"></div><div role="region"><a href="#" class="skipToContent_fXgn">Skip to main content</a></div><nav class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Navigation bar toggle" class="navbar__toggle clean-btn" type="button" tabindex="0"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/carbon-logo.png" alt="Carbon Logo" class="themedImage_ToTc themedImage--light_HNdA"><img src="/img/carbon-logo.png" alt="Carbon Logo" class="themedImage_ToTc themedImage--dark_i4oU"></div><b class="navbar__title text--truncate">Carbon Language</b></a><a class="navbar__item navbar__link" href="/design">Design</a><a class="navbar__item navbar__link" href="/spec">Spec</a><a class="navbar__item navbar__link" href="/project">Project</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/carbon-language/carbon-lang" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="searchBox_ZlJk"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div class="main-wrapper mainWrapper_z2l0"><main class="main_iUjq"><h1 id="carbon-language--an-experimental-successor-to-c">Carbon Language: <br> An experimental successor to C++</h1><p align="center"><a href="#why-build-carbon">Why?</a> | <a href="#language-goals">Goals</a> | <a href="#getting-started">Getting started</a> | <a href="#join-us">Join us</a></p><p><strong>See our <a href="https://youtu.be/omrY53kbVoA">announcement video</a> from
+<a href="https://cppnorth.ca/">CppNorth</a></strong></p><a href="docs/images/snippets.md#quicksort"><img src="docs/images/quicksort_snippet.svg" align="right" width="575" alt="Quicksort code in Carbon. Follow the link to read more."></a><div><a href="#"><img src="docs/images/bumper.png"></a></div><p><strong>Fast and works with C++</strong></p><ul><li>Performance matching C++ using LLVM, with low-level access to bits and
+addresses</li><li>Interoperate with your existing C++ code, from inheritance to templates</li><li>Fast and scalable builds that work with your existing C++ build systems</li></ul><p><strong>Modern and evolving</strong></p><ul><li>Solid language foundations that are easy to learn, especially if you have
+used C++</li><li>Easy, tool-based upgrades between Carbon versions</li><li>Safer fundamentals, and an incremental path towards a memory-safe subset</li></ul><p><strong>Welcoming open-source community</strong></p><ul><li>Clear goals and priorities with robust governance</li><li>Community that works to be welcoming, inclusive, and friendly</li><li>Batteries-included approach: compiler, libraries, docs, tools, package
+manager, and more</li></ul><h2 id="why-build-carbon">Why build Carbon?</h2><p>C++ remains the dominant programming language for performance-critical software,
+with massive and growing codebases and investments. However, it is struggling to
+improve and meet developers&#x27; needs outlined above, in no small part due to
+accumulating decades of technical debt. Incrementally improving C++ is
+<a href="/docs/project/difficulties_improving_cpp.md">extremely difficult</a>, both due to
+the technical debt itself and challenges with its evolution process. The best
+way to address these problems is to avoid inheriting the legacy of C or C++
+directly, and instead start with solid language foundations like a
+<a href="#generics">modern generics system</a>, modular code organization, and consistent,
+simple syntax.</p><p>Existing modern languages already provide an excellent developer experience: Go,
+Swift, Kotlin, Rust, and many more. <strong>Developers that <em>can</em> use one of these
+existing languages <em>should</em>.</strong> Unfortunately, the designs of these languages
+present significant barriers to adoption and migration from C++. These barriers
+range from changes in the idiomatic design of software to performance overhead.</p><p>Carbon is fundamentally <strong>a successor language approach</strong>, rather than an
+attempt to incrementally evolve C++. It is designed around interoperability with
+C++ as well as large-scale adoption and migration for existing C++ codebases and
+developers. A successor language for C++ requires:</p><ul><li><strong>Performance matching C++</strong>, an essential property for our developers.</li><li><strong>Seamless, bidirectional interoperability with C++</strong>, such that a library
+anywhere in an existing C++ stack can adopt Carbon without porting the rest.</li><li><strong>A gentle learning curve</strong> with reasonable familiarity for C++ developers.</li><li><strong>Comparable expressivity</strong> and support for existing software&#x27;s design and
+architecture.</li><li><strong>Scalable migration</strong>, with some level of source-to-source translation for
+idiomatic C++ code.</li></ul><p>With this approach, we can build on top of C++&#x27;s existing ecosystem, and bring
+along existing investments, codebases, and developer populations. There are a
+few languages that have followed this model for other ecosystems, and Carbon
+aims to fill an analogous role for C++:</p><ul><li>JavaScript → TypeScript</li><li>Java → Kotlin</li><li>C++ → <strong><em>Carbon</em></strong></li></ul><h2 id="language-goals">Language Goals</h2><p>We are designing Carbon to support:</p><ul><li>Performance-critical software</li><li>Software and language evolution</li><li>Code that is easy to read, understand, and write</li><li>Practical safety and testing mechanisms</li><li>Fast and scalable development</li><li>Modern OS platforms, hardware architectures, and environments</li><li>Interoperability with and migration from existing C++ code</li></ul><p>While many languages share subsets of these goals, what distinguishes Carbon is
+their combination.</p><p>We also have explicit <em>non-goals</em> for Carbon, notably including:</p><ul><li>A stable ABI for the entire language and library</li><li>Perfect backwards or forwards compatibility</li></ul><p>Our detailed <a href="/docs/project/goals.md">goals</a> document fleshes out these ideas
+and provides a deeper view into our goals for the Carbon project and language.</p><h2 id="project-status">Project status</h2><p>Carbon is currently an experimental project. We want to better understand
+whether we can build a language that meets our successor language criteria, and
+whether the resulting language can gather a critical mass of interest within the
+larger C++ industry and community.</p><p>Currently, we have fleshed out several core aspects of both Carbon the project
+and the language:</p><ul><li>The strategy of the Carbon Language and project.</li><li>An open-source project structure, governance model, and evolution process.</li><li>Critical and foundational aspects of the language design informed by our
+experience with C++ and the most difficult challenges we anticipate. This
+includes designs for:<ul><li>Generics</li><li>Class types</li><li>Inheritance</li><li>Operator overloading</li><li>Lexical and syntactic structure</li><li>Code organization and modular structure</li></ul></li><li>A prototype interpreter demo that can both run isolated examples and gives a
+detailed analysis of the specific semantic model and abstract machine of
+Carbon. We call this the <a href="/explorer/">Carbon Explorer</a>.</li></ul><p>We are currently focused on getting more broad feedback and participation from
+the C++ community,
+<a href="/docs/project/roadmap.md#completing-the-language-design">completing the 0.1 language design</a>,
+and
+<a href="/docs/project/roadmap.md#demo-implementation-of-core-features-with-working-examples">completing the Carbon Explorer implementation of this design</a>.
+Beyond that, we plan to prioritize C++ interoperability and a realistic
+toolchain that implements the 0.1 language and can be used to evaluate Carbon in
+more detail.</p><p>You can see our <a href="/docs/project/roadmap.md">full roadmap</a> for more details.</p><h2 id="carbon-and-c">Carbon and C++</h2><p>If you&#x27;re already a C++ developer, Carbon should have a gentle learning curve.
+It is built out of a consistent set of language constructs that should feel
+familiar and be easy to read and understand.</p><p>C++ code like this:</p><a href="docs/images/snippets.md#c"><img src="docs/images/cpp_snippet.svg" width="600" alt="A snippet of C++ code. Follow the link to read it."></a><p>corresponds to this Carbon code:</p><a href="docs/images/snippets.md#carbon"><img src="docs/images/carbon_snippet.svg" width="600" alt="A snippet of converted Carbon code. Follow the link to read it."></a><p>You can call Carbon from C++ without overhead and the other way around. This
+means you migrate a single C++ library to Carbon within an application, or write
+new Carbon on top of your existing C++ investment. For example:</p><a href="docs/images/snippets.md#mixed"><img src="docs/images/mixed_snippet.svg" width="600" alt="A snippet of mixed Carbon and C++ code. Follow the link to read it."></a><p>Read more about
+<a href="/docs/design/interoperability/philosophy_and_goals.md">C++ interop in Carbon</a>.</p><p>Beyond interoperability between Carbon and C++, we&#x27;re also planning to support
+migration tools that will mechanically translate idiomatic C++ code into Carbon
+code to help you switch an existing C++ codebase to Carbon.</p><h2 id="generics">Generics</h2><p>Carbon provides a
+<strong><a href="/docs/design/generics/overview.md#what-are-generics">modern generics system</a></strong>
+with checked definitions, while still <strong>supporting opt-in
+<a href="/docs/design/templates.md">templates</a> for seamless C++ interop</strong>. Checked
+generics provide several advantages compared to C++ templates:</p><ul><li><strong>Generic definitions are fully type checked</strong>, removing the need to
+instantiate to check for errors and giving greater confidence in code.<ul><li>Avoids compile time cost of re-checking the definition for every
+instantiation.</li><li>When using a definition-checked generic, usage error messages are
+clearer, directly showing which requirements are not met.</li></ul></li><li><strong>Enables automatic, opt-in type erasure and dynamic dispatch</strong> without a
+separate implementation. This can reduce binary size and enables constructs
+like heterogeneous containers.</li><li><strong>Strong, checked interfaces</strong> mean fewer accidental dependencies on
+implementation details and a clearer contract for consumers.</li></ul><p>Without sacrificing these advantages, <strong>Carbon generics support
+specialization</strong>, ensuring it can fully address performance-critical use cases
+of C++ templates. For more details about Carbon&#x27;s generics, see their
+<a href="/docs/design/generics">design</a>.</p><p>In addition to easy and powerful interop with C++, Carbon templates can be
+constrained and incrementally migrated to checked generics at a fine granularity
+and with a smooth evolutionary path.</p><h2 id="memory-safety">Memory safety</h2><p>Safety, and especially
+<a href="https://en.wikipedia.org/wiki/Memory_safety">memory safety</a>, remain key
+challenges for C++ and something a successor language needs to address. Our
+initial priority and focus is on immediately addressing important, low-hanging
+fruit in the safety space:</p><ul><li>Tracking uninitialized states better, increased enforcement of
+initialization, and systematically providing hardening against
+initialization bugs when desired.</li><li>Designing fundamental APIs and idioms to support dynamic bounds checks in
+debug and hardened builds.</li><li>Having a default debug build mode that is both cheaper and more
+comprehensive than existing C++ build modes even when combined with
+<a href="https://github.com/google/sanitizers/wiki/AddressSanitizer">Address Sanitizer</a>.</li></ul><p>Once we can migrate code into Carbon, we will have a simplified language with
+room in the design space to add any necessary annotations or features, and
+infrastructure like <a href="#generics">generics</a> to support safer design patterns.
+Longer term, we will build on this to introduce <strong>a safe Carbon subset</strong>. This
+will be a large and complex undertaking, and won&#x27;t be in the 0.1 design.
+Meanwhile, we are closely watching and learning from efforts to add memory safe
+semantics onto C++ such as Rust-inspired
+<a href="https://discourse.llvm.org/t/rfc-lifetime-annotations-for-c/61377">lifetime annotations</a>.</p><h2 id="getting-started">Getting started</h2><p>You can get started playing with Carbon by checking out the codebase and using
+the Carbon explorer:</p><pre><code class="language-shell"># Install bazelisk using Homebrew.
+$ brew install bazelisk
+
+# Install Clang/LLVM using Homebrew.
+# Many Clang/LLVM releases aren&#x27;t built with options we rely on.
+$ brew install llvm
+$ export PATH=&quot;$(brew --prefix llvm)/bin:${PATH}&quot;
+
+# Download Carbon&#x27;s code.
+$ git clone https://github.com/carbon-language/carbon-lang
+$ cd carbon-lang
+
+# Build and run the explorer.
+$ bazel run //explorer -- ./explorer/testdata/print/format_only.carbon
+</code></pre><p>These instructions assume <a href="https://brew.sh/">Homebrew</a>; see our
+<a href="/docs/project/contribution_tools.md">contribution tools documentation</a> for more
+extensive tooling instructions.</p><p>Learn more about the Carbon project:</p><ul><li><a href="/docs/project/goals.md">Project goals</a></li><li><a href="/docs/design">Language design overview</a></li><li><a href="/explorer">Carbon Explorer</a></li><li><a href="/docs/project/faq.md">FAQ</a></li></ul><h2 id="join-us">Join us</h2><p>Carbon is committed to a welcoming and inclusive environment where everyone can
+contribute.</p><ul><li>To watch for major release announcements, subscribe to
+<a href="https://github.com/carbon-language/carbon-lang/discussions/1020">our Carbon release post on GitHub</a>
+and <a href="https://github.com/carbon-language/carbon-lang">star carbon-lang</a>.</li><li>To join the design discussion, join our
+<a href="https://github.com/carbon-language/carbon-lang/discussions">our GitHub forum</a>.</li><li>See our <a href="CODE_OF_CONDUCT.md">code of conduct</a> and
+<a href="CONTRIBUTING.md">contributing guidelines</a> for information about the Carbon
+development community.</li><li>We discuss Carbon on <a href="https://discord.gg/ZjVdShJDAs">Discord</a>.</li></ul></main></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/carbon-language/carbon-lang" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://discord.gg/ZjVdShJDAs" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://github.com/carbon-language/carbon-lang/blob/trunk/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer" class="footer__link-item">Code of Conduct<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div></div></footer></div>
+<script src="/assets/js/runtime~main.635df7c8.js"></script>
+<script src="/assets/js/main.7a2d97d0.js"></script>
+</body>
+</html>

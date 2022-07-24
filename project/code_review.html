@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper docs-doc-page docs-version-current plugin-docs plugin-id-project docs-doc-id-code_review">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Docusaurus v2.0.0-rc.1">
+<title data-rh="true">Code review | Carbon Language</title><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://emlai.github.io/project/code_review"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-project-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-project-current"><meta data-rh="true" property="og:title" content="Code review | Carbon Language"><meta data-rh="true" name="description" content="&lt;!--"><meta data-rh="true" property="og:description" content="&lt;!--"><link data-rh="true" rel="icon" href="/img/carbon-logo.png"><link data-rh="true" rel="canonical" href="https://emlai.github.io/project/code_review"><link data-rh="true" rel="alternate" href="https://emlai.github.io/project/code_review" hreflang="en"><link data-rh="true" rel="alternate" href="https://emlai.github.io/project/code_review" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.0141378e.css">
+<link rel="preload" href="/assets/js/runtime~main.635df7c8.js" as="script">
+<link rel="preload" href="/assets/js/main.7a2d97d0.js" as="script">
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
+<div role="region"><a href="#" class="skipToContent_fXgn">Skip to main content</a></div><nav class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Navigation bar toggle" class="navbar__toggle clean-btn" type="button" tabindex="0"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/carbon-logo.png" alt="Carbon Logo" class="themedImage_ToTc themedImage--light_HNdA"><img src="/img/carbon-logo.png" alt="Carbon Logo" class="themedImage_ToTc themedImage--dark_i4oU"></div><b class="navbar__title text--truncate">Carbon Language</b></a><a class="navbar__item navbar__link" href="/design">Design</a><a class="navbar__item navbar__link" href="/spec">Spec</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/project">Project</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/carbon-language/carbon-lang" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="searchBox_ZlJk"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div class="main-wrapper mainWrapper_z2l0 docsWrapper_BCFX"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docPage__5DB"><aside class="theme-doc-sidebar-container docSidebarContainer_b6E3"><div class="sidebar_njMd"><nav class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project">Project</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/project/code_review">Code review</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project/contribution_tools">Contribution tools</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project/cpp_style_guide">C++ style guide</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project/design_style_guide">Language design style guide</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project/difficulties_improving_cpp">Difficulties improving C++</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project/evolution">Evolution and governance</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project/faq">Project FAQ</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project/goals">Goals</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project/groups">Groups</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/project/principles">Principles</a><button aria-label="Toggle the collapsible sidebar category &#x27;Principles&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project/pull_request_workflow">Trunk-based pull-request GitHub workflow</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project/roadmap">Roadmap</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project/roadmap_process">Roadmap process</a></li></ul></nav></div></aside><main class="docMainContainer_gTbr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_OVgt"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Code review</span><meta itemprop="position" content="1"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1>Code review</h1><h2 class="anchor anchorWithStickyNavbar_LWe7" id="table-of-contents">Table of contents<a class="hash-link" href="#table-of-contents" title="Direct link to heading">​</a></h2><ul><li><a href="#high-level-goals-of-code-review">High level goals of code review</a></li><li><a href="#what-requires-review">What requires review?</a></li><li><a href="#who-should-review">Who should review?</a></li><li><a href="#github-pull-request-mechanics">GitHub pull request mechanics</a></li><li><a href="#code-author-guide">Code author guide</a><ul><li><a href="#write-good-change-descriptions">Write good change descriptions</a><ul><li><a href="#first-line">First line</a></li><li><a href="#body">Body</a></li></ul></li><li><a href="#make-small-changes">Make small changes</a></li><li><a href="#responding-to-review-comments">Responding to review comments</a><ul><li><a href="#responding-to-questions-or-confusion">Responding to questions or confusion</a></li><li><a href="#understand-the-feedback-in-the-comments">Understand the feedback in the comments</a></li></ul></li></ul></li><li><a href="#code-reviewer-guide">Code reviewer guide</a><ul><li><a href="#how-quickly-should-you-respond-to-a-review-request">How quickly should you respond to a review request?</a></li><li><a href="#what-should-be-covered-by-a-review">What should be covered by a review?</a></li><li><a href="#writing-review-comments">Writing review comments</a></li><li><a href="#approving-the-change">Approving the change</a></li></ul></li><li><a href="#merging-pull-requests">Merging pull requests</a><ul><li><a href="#merge-commit-descriptions">Merge commit descriptions</a></li></ul></li><li><a href="#resolving-an-impasse-or-conflict">Resolving an impasse or conflict</a></li><li><a href="#escalation">Escalation</a></li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="high-level-goals-of-code-review">High level goals of code review<a class="hash-link" href="#high-level-goals-of-code-review" title="Direct link to heading">​</a></h2><p>Code review serves several goals in the Carbon project. It directly improves the
+correctness, clarity, and consistency of contributions, including both code and
+documentation. These improvements range from the high-level functionality down
+through the design and implementation details. It also promotes team ownership
+and spreads knowledge across the team.</p><p>More detailed discussions can be found in chapter 9 &quot;Code Review&quot; of the book
+<em><a href="https://www.amazon.com/Software-Engineering-Google-Lessons-Programming/dp/1492082791" target="_blank" rel="noopener noreferrer">Software Engineering at Google</a></em>
+and chapter 21 &quot;Collaborative Construction&quot; in
+<em><a href="https://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670/" target="_blank" rel="noopener noreferrer">Code Complete: A Practical Handbook of Software Construction</a></em>.
+However, these details aren&#x27;t essential to understanding code review and how it
+works in the Carbon project. All of the important details are provided in the
+project documentation.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-requires-review">What requires review?<a class="hash-link" href="#what-requires-review" title="Direct link to heading">​</a></h2><p>Every change to Carbon&#x27;s repositories requires code review. Even formal
+<a href="/project/evolution">evolution decisions</a> which have been approved should have their
+specific changes to the repository reviewed.</p><p>Many changes to Carbon repositories may <em>only</em> require code review. Typically,
+these include bug fixes, and development or documentation improvements clearly
+in line with accepted designs. It may in some rare cases extend to exploring
+experimental or prototype directions whose design is under active consideration.</p><p>The term &quot;code review&quot; in the Carbon project is not only about &quot;code&quot;. We expect
+changes to any files to be reviewed, including documentation and any other
+material stored in the repository.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="who-should-review">Who should review?<a class="hash-link" href="#who-should-review" title="Direct link to heading">​</a></h2><p>Everyone should feel free to review Carbon changes. Even providing small or
+partial review can be a good way to start contributing to Carbon. Contributors
+with specific domain expertise or familiarity should also try to provide review
+on changes touching relevant parts of the project.</p><p>Additionally, at least one developer with commit access must review each change.
+In Carbon, developers will focus on particular areas, loosely broken down as:</p><ul><li><p><a href="/project/groups#carbon-leads">Carbon leads</a>: <a href="https://github.com/carbon-language/carbon-lang/blob/trunk/proposals/" target="_blank" rel="noopener noreferrer">proposals</a> and other
+important project documents, including the <a href="/project">Main README</a>,
+<a href="https://github.com/carbon-language/carbon-lang/blob/trunk/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer">Code of Conduct</a>, <a href="https://github.com/carbon-language/carbon-lang/blob/trunk/LICENSE" target="_blank" rel="noopener noreferrer">license</a>, and
+<a href="/project/goals">goals</a>.</p></li><li><p><a href="/project/groups#implementation-team">Implementation team</a>: general changes.</p><ul><li>We split out auto-assignment by
+<a href="https://github.com/carbon-language/carbon-lang/blob/trunk/.github/assign_prs/explorer.yaml" target="_blank" rel="noopener noreferrer">explorer</a>,
+<a href="https://github.com/carbon-language/carbon-lang/blob/trunk/.github/assign_prs/toolchain.yaml" target="_blank" rel="noopener noreferrer">toolchain</a>, and
+<a href="https://github.com/carbon-language/carbon-lang/blob/trunk/.github/assign_prs/fallback.yaml" target="_blank" rel="noopener noreferrer">other files, including documentation</a>.</li></ul></li></ul><p><a href="https://github.com/carbon-language/carbon-lang/blob/trunk/.github/workflows/assign_prs.yaml" target="_blank" rel="noopener noreferrer">Auto-assignment</a> will help find owners, but
+won&#x27;t always be perfect -- developers may take a PR they weren&#x27;t auto-assigned
+in order to help review go quickly. Contributors can also request multiple
+reviewers, but it can be daunting to get feedback from a large number of
+reviewers, so we suggest keeping the number of reviewers reasonably small.</p><p>Any reviews that explicitly request changes should be addressed, either with the
+changes or an explanation of why not, before a pull request is merged. Further,
+any owners who have requested changes should explicitly confirm they&#x27;re happy
+with the resolution before the change is merged.</p><p>When a team gives an affirm decision on an <a href="/project/evolution">evolution proposal</a>,
+each team member should explicitly note any of their comments on the pull
+request that, while not blocking the <em>decision</em>, still need to be resolved as
+part of code review prior to it being merged. These might, for example, be
+trivial or minor wording tweaks or improvements. Otherwise, the decision is
+assumed to mean the prior review comments from members of that team are
+addressed; the author is free to merge once the pull request is approved,
+possibly with a code review separate from the proposal&#x27;s review.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="github-pull-request-mechanics">GitHub pull request mechanics<a class="hash-link" href="#github-pull-request-mechanics" title="Direct link to heading">​</a></h2><p>Carbon uses GitHub pull requests for code review, and we recommend some
+mechanical best practices to most effectively navigate them.</p><ul><li>Be aware that the main thread of pull request doesn&#x27;t support threaded
+discussions or &quot;resolving&quot; a comment.<ul><li>If either of those would be useful, you&#x27;ll probably want to comment on a
+file.</li><li>You can quote comments in the main conversation thread in a reply by
+clicking the three-dot menu on the original comment and selecting &quot;Quote
+reply&quot;.</li></ul></li><li>If you will want to comment on files, don&#x27;t comment in the pull request
+conversation.<ul><li>Always go to the <code>Files Changed</code> tab.</li><li>Make any in-file comments needed, but add them to a pending review
+rather than sending them directly.</li><li>Finish the review and add any top-level review comments there.</li></ul></li><li>If you are an owner who will be providing approval for the change, then make
+sure to mark a review as requesting changes when you want the author to
+begin addressing your comment. Only use the &quot;comment&quot; review state if you
+are still in the process of reviewing and don&#x27;t expect the author to begin
+working on further changes.<ul><li>If you are not an owner asked to approve, use the difference between a
+comment and requesting a change to help the author know whether to
+circle back with you before landing the pull request if the relevant
+owner(s) approve it.</li></ul></li><li>Don&#x27;t reply to in-file comment threads in the conversation view, or with
+direct single reply comments.<ul><li>Add all replies to in-file comment threads using the <code>Files Changed</code> tab
+and by adding each reply to a new review, and posting them as a batch
+when done.</li><li>You can get to the appropriate <code>Files Changed</code> tab by clicking on the
+change listed in the conversation view with the incoming set of in-file
+comments.</li><li>This flow ensures an explicit update in the overall pull request that
+can help both the author and other reviewers note that new replies have
+arrived.</li></ul></li><li>Don&#x27;t reply to an in-file comment and then mark it as resolved. No one will
+see your reply as the thread will be hidden immediately when marked as
+resolved.<ul><li>Generally, the person who started the comment thread should mark it as
+resolved when their comments are sufficiently addressed. If another
+reviewer is also on the thread and should also agree, just state that
+you&#x27;re happy and the last reviewer can mark it resolved.</li><li>Trivially resolved threads can just be marked as &quot;resolved&quot; without
+further update. Examples: a suggested change that has been successfully
+applied, or a thread where the relevant reviewers have clearly indicated
+they&#x27;re happy.</li></ul></li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="code-author-guide">Code author guide<a class="hash-link" href="#code-author-guide" title="Direct link to heading">​</a></h2><p>The goal of an author should be to ensure their change improves the overall
+code, repository, and/or project. Within the context of code review, the goal is
+to get a reviewer to validate that the change succeeds at this goal. That
+involves finding an effective reviewer given the particular nature of the
+change, helping them understand the change fully, and addressing any feedback
+they provide.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="write-good-change-descriptions">Write good change descriptions<a class="hash-link" href="#write-good-change-descriptions" title="Direct link to heading">​</a></h3><p>The change description in the pull request is the first thing your reviewers
+will see. This sets the context for the entire review, and is very important.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="first-line">First line<a class="hash-link" href="#first-line" title="Direct link to heading">​</a></h4><p>The first line of a commit, or the subject of the pull request, should be a
+short summary of specifically what is being done by that change. It should be a
+complete sentence, written as though it was an order. Try to keep it short,
+focused, and to the point.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="body">Body<a class="hash-link" href="#body" title="Direct link to heading">​</a></h4><p>The description body may need to explain several important aspects of the change
+to provide context for the reviewer when it isn&#x27;t obvious from the change
+itself:</p><ul><li>The problem being solved by the change.</li><li>Why the approach taken is the best one.</li><li>Any issues, concerns, or shortcomings of the approach.</li><li>Any alternatives considered or attempted.</li><li>Relevant supporting data such as examples or benchmarks.</li></ul><p>Try to anticipate what information the reviewer of your change will need to have
+in order to be effective. Also consider what information someone else will need
+a year in the future when doing archaeology on the codebase and they come across
+your change without any context.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="make-small-changes">Make small changes<a class="hash-link" href="#make-small-changes" title="Direct link to heading">​</a></h3><p>Small changes have many benefits:</p><ul><li>Faster review.</li><li>More thorough review.</li><li>Easier to merge.</li><li>Easier to revert if needed.</li></ul><p>The ideal size of a change is as small as possible while it remains
+self-contained. It should address only <em>one thing</em>. Often, this results in a
+change only addressing <em>part</em> of a feature rather than the whole thing at once.
+This makes work more incremental, letting the reviewer understand it piece by
+piece. It can also make it much easier to critically evaluate whether each part
+of a feature is adequately tested by showing it in isolation.</p><p>That said, a change should not be so small that its implications cannot easily
+be understood. It is fine to provide the reviewer context or a framework of a
+series of changes so they understand the big picture, but that will only go so
+far. It is still possible to shrink a change so much that it becomes nonsensical
+in isolation. For example, a change without appropriate tests is not
+self-contained.</p><p>You may want to use a set of stacked pull requests rather than a single, larger
+pull request in order to keep changes easy to review.</p><blockquote><p>TODO: link to the stacked pull request documentation when available.</p></blockquote><h3 class="anchor anchorWithStickyNavbar_LWe7" id="responding-to-review-comments">Responding to review comments<a class="hash-link" href="#responding-to-review-comments" title="Direct link to heading">​</a></h3><p>Many comments have easy and simple responses. The easiest is <strong>&quot;Done&quot;</strong>. When
+the comment is a concrete suggestion that makes sense and you implement it, you
+can simply let the reviewer know their suggestion has been incorporated. If the
+<em>way</em> you implemented the suggestion might need clarification, add that as well.
+For example, consider mentioning tweaks to the suggestion or when the suggestion
+was applied in more places.</p><p>When a suggestion from the reviewer is explicitly optional, you may also have a
+simple response that you&#x27;re not going to make the change. This is totally fine
+-- if it weren&#x27;t, the reviewer shouldn&#x27;t have listed it as optional -- but it
+may be helpful to explain your reasoning to the reviewer so they understand
+better why the optional suggestion didn&#x27;t make sense to you.</p><p>Sometimes comments, even optional ones, center around slight differences or
+preferences around the code. Consider that the reviewer may be a good proxy for
+future readers. If the suggestion is essentially equivalent to your original
+code, consider adopting it as it may make the code easier to read for others.
+But if you feel the current choice is <em>better</em>, even if only slightly, stand up
+for yourself and keep it. The reviewer can always push for a change and justify
+it if needed.</p><p>For non-optional comments, this section provides several suggestions on how best
+to make progress. If none of these work, you may need to
+<a href="#resolving-an-impasse-or-conflict">resolve an impasse or conflict</a>.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="responding-to-questions-or-confusion">Responding to questions or confusion<a class="hash-link" href="#responding-to-questions-or-confusion" title="Direct link to heading">​</a></h4><p>Some comments in code review will be questions or confusion as the reviewer
+tries to understand the code in question or why a particular approach was used.
+Don&#x27;t assume that questions are a request for a change. Reviewers should be
+explicit if they think a change is needed rather than merely asking questions.
+You should assume a question or confusion is something which only needs to be
+clarified.</p><p>However, when responding to a question or confusion, consider making changes to
+improve clarity in addition to responding within the review, such as by adding
+comments or changing code structure. The reviewer may not be the last person to
+need more clarity, and you should use their comments as a signal for
+improvement. Once done, the review response should typically focus on verifying
+that the clarifications made in the code are sufficient for the reviewer.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="understand-the-feedback-in-the-comments">Understand the feedback in the comments<a class="hash-link" href="#understand-the-feedback-in-the-comments" title="Direct link to heading">​</a></h4><p>At times, review comments may be confusing or frustrating for you. While this is
+something we always want reviewers to minimize, it will still happen at some
+times and to some degree. It helps to remember that the goal of the review is to
+ensure the change results in the project improving over time.</p><p>If the review comment doesn&#x27;t make sense, ask the reviewer to help you
+understand the feedback better. If it isn&#x27;t constructive or doesn&#x27;t seem to
+provide any meaningful path forward, ask the reviewer to provide this. Making
+comments both clear and constructive are part of the reviewers&#x27;
+responsibilities.</p><p>Once there is a clear and effectively communicated comment that you understand,
+it may still feel wrong or like it is unnecessarily blocking your progress. It
+is important to try to step back in this situation and, no matter how certain
+you are, genuinely consider whether there is valuable feedback. You should be
+asking yourself whether the reviewer might be correct, potentially in an
+unexpected or surprising way. If you can&#x27;t decide this definitively, you may
+need to work to get a deeper understanding.</p><p>If you are confident that the reviewer&#x27;s comment is incorrect, that is <em>OK</em>. The
+reviewer is also only human and is certain to make mistakes and miss things. The
+response needs to try to explain what it is that leads you to be confident in
+your assessment. Lay out the information you have and how you are reasoning
+about the issue to arrive at the conclusion. Try not to make assumptions about
+what the reviewer knows or why they made the comment. Instead, focus on
+surfacing explicitly your perspective on the issue.</p><p>These parts of a review will often be a discussion and may need to iterate a few
+times. That isn&#x27;t intrinsically bad, but try to make sure that it doesn&#x27;t result
+in reiterating positions or repeating things. Make sure the discussion is
+<em>progressing</em> towards deeper understanding and recognize when you reach an
+impasse or conflict and shift strategy to
+<a href="#resolving-an-impasse-or-conflict">resolve that</a>. It is also useful to avoid
+long delays between these iterations. Consider discussing over Discord chat or
+scheduling a quick video chat on the specific issue. This can avoid multi-hour
+-- or multi-day -- round trips.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="code-reviewer-guide">Code reviewer guide<a class="hash-link" href="#code-reviewer-guide" title="Direct link to heading">​</a></h2><p>The specific goal for a particular review should always be to ensure that the
+overall health of the code, repository, and/or project improves over time. This
+requires that contributions <em>make progress</em> -- otherwise, nothing can improve.
+However, the review should ensure that quality of changes does not cause the
+health of the project to decrease over time.</p><p>The primary responsibility for ensuring that code review remains constructive,
+productive, and helpful resides in the <em>reviewer</em>. As a reviewer, you are in a
+position of power and asked to critique the authors hard work. With this power
+comes responsibility for conducting the review well.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="how-quickly-should-you-respond-to-a-review-request">How quickly should you respond to a review request?<a class="hash-link" href="#how-quickly-should-you-respond-to-a-review-request" title="Direct link to heading">​</a></h3><p>Try to respond to code review requests as soon as you can without interrupting a
+focused task. At the latest, the next day you are working on the project. Note
+that the review isn&#x27;t expected to necessarily be complete after a single review.
+It is more valuable to give reasonably quick but partial feedback than to delay
+feedback in order to complete it. If leaving partial feedback, make it clear to
+the author which parts are covered and which you haven&#x27;t gotten to yet.</p><p>Large changes are especially important to give incremental feedback on in order
+to do so in a timely fashion. One of the first things to consider with large
+changes is whether it can be split apart into smaller changes that are easier to
+review promptly.</p><p>This timeliness guidance doesn&#x27;t apply to the higher-level
+<a href="/project/evolution">evolution process</a> reviews. Evaluating those proposals will often
+require a larger time investment and have their own timelines spelled out in the
+process. Here, we are talking about simply reviewing changes themselves
+orthogonally to any evolutionary discussion and evaluation.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="what-should-be-covered-by-a-review">What should be covered by a review?<a class="hash-link" href="#what-should-be-covered-by-a-review" title="Direct link to heading">​</a></h3><p>Things to consider and evaluate when reviewing changes:</p><ul><li>Is the code well designed?<ul><li>Is the resulting functionality, including its interface, good for the
+users of the code?</li><li>Does the resulting design facilitate long-term maintenance?</li><li>Can the code be simplified? Is there unnecessary complexity?</li><li>Are things being implemented that aren&#x27;t yet needed and only <em>might</em> be
+needed in the future?</li></ul></li><li>Is the code free of bugs and well tested?<ul><li>Is memory safely managed?</li><li>Is any parallel or concurrent programming done safely?</li><li>Do unit tests cover relevant behaviors and edge cases?</li><li>Do any integration tests need to be extended or added?</li><li>Do any fuzz tests need to be extended or added?</li><li>Are any tests well designed to be both thorough but also maintainable
+over time?</li></ul></li><li>Is the code easy to read?<ul><li>Are the names used in the code clear?</li><li>Are all important or non-obvious aspects of the code well commented? Do
+the comments focus on <em>why</em> instead of <em>what</em>?</li><li>Is there appropriate high level documentation for the change?</li><li>Does the change adhere to all relevant style guides?</li><li>Is the change consistent with other parts of the project?</li></ul></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="writing-review-comments">Writing review comments<a class="hash-link" href="#writing-review-comments" title="Direct link to heading">​</a></h3><p>These are general guidelines for writing effective code review comments:</p><ul><li><strong>Be kind.</strong> Detailed review, especially in an open source project, can be
+stressful and difficult for the author. As a reviewer, part of the job is to
+ensure the review experience ends up positive and constructive for the
+author.</li><li><strong>Stay constructive.</strong> Focus your comments on suggesting specific ways to
+improve the change. If you need to explain why an improvement is necessary,
+focus on objective ways the improvement helps and avoid both subjective
+assessments and anchoring on problems with the current state.</li><li><strong>Explain why.</strong> It is important for the author to understand not merely the
+mechanical suggested change but what motivates it and why it matters. This
+may help clear up misunderstandings, help the suggestion be understood and
+applied more effectively, and allow internalizing improvements for future
+contributions.</li><li><strong>Provide a path forward.</strong> The author needs to understand what they will
+need to do to respond to your comments. For example, always provide
+alternatives when commenting that the current approach won&#x27;t work.</li></ul><p>Keep in mind that the goal is to improve the overall health of the code,
+repository, and/or project over time. Sometimes, there will be pushback on
+review comments. Consider carefully if the author is correct -- they may be
+closer to the technical issues than you are and may have important insight. Also
+consider whether the suggestion is necessary to achieve the overall goal. If the
+suggestion isn&#x27;t critical to make the change an overall improvement, it may be
+fine for it to move forward as-is.</p><p>As with all communication in the Carbon project, it is critical that your
+comments are not unkind, unwelcoming, angry, ad-hominem attacks, or otherwise
+violating our community&#x27;s <a href="https://github.com/carbon-language/carbon-lang/blob/trunk/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer">code of conduct</a>.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="approving-the-change">Approving the change<a class="hash-link" href="#approving-the-change" title="Direct link to heading">​</a></h3><p>Be explicit and unambiguous at the end of your review. Select &quot;Approve&quot; when
+submitting the review to mark this in GitHub. You can always include a message,
+often &quot;LGTM&quot; or &quot;Looks Good To Me&quot; is often used. If you don&#x27;t feel like you&#x27;re
+in a position to approve the change and are simply helping out with review
+feedback, make that explicit as well. You should set the review to a &quot;Comment&quot;
+in GitHub, but also state this explicitly in the message since this is the
+default and doesn&#x27;t indicate that your feedback <em>is</em> addressed. For example, say
+that &quot;my comments are addressed, but leaving the final review to others&quot; to
+clearly indicate that you&#x27;re happy but are deferring the decision to others. If
+you are an owner and deferring to someone else, it is essential to suggest
+specific other reviewers. Otherwise, we risk all the owners assuming another is
+going to approve the change.</p><p>An important technique to make progress, especially with different working hours
+and timezones, is to approve changes even with outstanding comments. For
+example, if the comments you have are straightforward and have unambiguous fixes
+or suggested edits, you should give an LGTM with those comments addressed. The
+author can always come back to you if they have questions, and we can always
+revert changes if the resolution for some reason diverges wildly from your
+expectations.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="merging-pull-requests">Merging pull requests<a class="hash-link" href="#merging-pull-requests" title="Direct link to heading">​</a></h2><p>Pull requests are ready to be merged when reviewers have indicated they&#x27;re happy
+(for example, &quot;LGTM&quot; or &quot;Looks good to me&quot;) or have approved the pull request.
+While all merges require at least one approval, a reviewer might approve before
+others are finished reviewing; all reviewers should be given time to comment to
+ensure there&#x27;s a consensus.</p><p>Either the author or reviewer may merge and resolve conflicts. The author may
+indicate they want to merge by informing the reviewer and adding the
+<code>DO NOT MERGE</code> label. The reviewer is encouraged to coordinate with the author
+about merge timing if there are concerns about breaks. In either case, the
+developer doing the merge is expected to be available to help address
+post-commit issues, whether through a fix-forward or a rollback.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="merge-commit-descriptions">Merge commit descriptions<a class="hash-link" href="#merge-commit-descriptions" title="Direct link to heading">​</a></h3><p>When squashing and merging, GitHub tries to generate a description, but it&#x27;s
+recommended to use the first comment on the pull request review for the squashed
+commit description. Authors should keep it up-to-date so that reviewers can
+merge when the change is ready. Reviewers shouldn&#x27;t edit or rewrite this message
+themselves, and instead ask the author make those changes (possibly with
+suggestions) just like other parts of the code review. It&#x27;s important that the
+commit message is one the author is comfortable with when merged.</p><p>When suggested edits have been merged into a pull request, GitHub will append a
+<code>Co-authored-by:</code> line to its default proposed commit message for each reviewer
+who suggested edits that were applied. These lines should be retained and
+appended to the message from the initial comment.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="resolving-an-impasse-or-conflict">Resolving an impasse or conflict<a class="hash-link" href="#resolving-an-impasse-or-conflict" title="Direct link to heading">​</a></h2><p>At some point, a review may reach an impasse or a genuine conflict. While our
+goal is always to resolve these by building consensus in review, it may not be
+possible. Both the author and any reviewers should be careful to recognize when
+this point arrives and address it directly. Continuing the review is unlikely to
+be productive and has a high risk of becoming acrimonious or worse.</p><p>There are two techniques to use to resolve these situations that should be tried
+early on:</p><ol><li><p>Bring another person into the review to help address the specific issue.
+Typically they should at least be an owner, and may usefully be a
+<a href="/project/groups#carbon-leads">Carbon lead</a>.</p></li><li><p>Ask the specific question in a broader forum, such as Discord, in order to
+get a broad set of perspectives on a particular area or issue.</p></li></ol><p>The goal of these steps isn&#x27;t to override the author or the reviewer, but to get
+more perspectives and voices involved. Often this will clarify the issue and its
+trade-offs, and provide a simple resolution that all parties are happy with.
+However, in some cases, the underlying conflict isn&#x27;t actually addressed. While
+there is a desire to generally bias towards the direction of the owners during
+reviews, reviews should <em>not</em> turn into a voting process. The reason for
+proceeding in a specific direction should always be explained sufficiently that
+all parties on the review are satisfied by the explanation and don&#x27;t feel the
+need to escalate.</p><p>Fundamentally, both reviewers and the author need to agree on the direction to
+move forward. If reaching that agreement proves impossible, the review should be
+<a href="#escalation">escalated</a>. If you feel like an escalation is needed in a review,
+be explicit and clear in requesting it. There is nothing bad about going through
+this process, but it should only occur when needed and so it helps to be very
+clear.</p><p>Once the impasse or conflict is addressed, it is <em>essential</em> to commit to that
+direction. It can be especially difficult for the author to accept a direction
+that they initially disagree with and make changes to their code as a result. An
+essential skill is the ability to
+<a href="https://en.wikipedia.org/wiki/Disagree_and_commit" target="_blank" rel="noopener noreferrer">disagree and commit</a>.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="escalation">Escalation<a class="hash-link" href="#escalation" title="Direct link to heading">​</a></h2><p>At the explicit request of any <a href="/project/evolution#carbon-leads-1">Carbon lead</a> or to
+resolve any fundamental impasse in a review, the change should move to a formal
+<a href="/project/evolution#proposals">proposal</a>. Ultimately, the Carbon project
+<a href="/project/evolution#governance-structure">governance</a> structure is always available as
+an escalation path.</p><p>Before escalating an impasse or conflict in code review, try asking another
+reviewer to help resolve the issue or bridge any communication gaps. Consider
+scheduling a quick video chat to discuss and better understand each others&#x27;
+concerns and position.</p><p>Note that the formal evolution process is heavyweight and relatively slow. The
+expectation is that this is rarely used and only to resolve serious and severe
+disagreements. If this becomes a more common problem, lighter weight processes
+may be needed to help ensure a reasonable rate of progress.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/carbon-language/carbon-lang/blob/trunk/docs/project/code_review.md" target="_blank" rel="noreferrer noopener" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages navigation"><a class="pagination-nav__link pagination-nav__link--prev" href="/project"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Project</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/project/contribution_tools"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Contribution tools</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#table-of-contents" class="table-of-contents__link toc-highlight">Table of contents</a></li><li><a href="#high-level-goals-of-code-review" class="table-of-contents__link toc-highlight">High level goals of code review</a></li><li><a href="#what-requires-review" class="table-of-contents__link toc-highlight">What requires review?</a></li><li><a href="#who-should-review" class="table-of-contents__link toc-highlight">Who should review?</a></li><li><a href="#github-pull-request-mechanics" class="table-of-contents__link toc-highlight">GitHub pull request mechanics</a></li><li><a href="#code-author-guide" class="table-of-contents__link toc-highlight">Code author guide</a><ul><li><a href="#write-good-change-descriptions" class="table-of-contents__link toc-highlight">Write good change descriptions</a></li><li><a href="#make-small-changes" class="table-of-contents__link toc-highlight">Make small changes</a></li><li><a href="#responding-to-review-comments" class="table-of-contents__link toc-highlight">Responding to review comments</a></li></ul></li><li><a href="#code-reviewer-guide" class="table-of-contents__link toc-highlight">Code reviewer guide</a><ul><li><a href="#how-quickly-should-you-respond-to-a-review-request" class="table-of-contents__link toc-highlight">How quickly should you respond to a review request?</a></li><li><a href="#what-should-be-covered-by-a-review" class="table-of-contents__link toc-highlight">What should be covered by a review?</a></li><li><a href="#writing-review-comments" class="table-of-contents__link toc-highlight">Writing review comments</a></li><li><a href="#approving-the-change" class="table-of-contents__link toc-highlight">Approving the change</a></li></ul></li><li><a href="#merging-pull-requests" class="table-of-contents__link toc-highlight">Merging pull requests</a><ul><li><a href="#merge-commit-descriptions" class="table-of-contents__link toc-highlight">Merge commit descriptions</a></li></ul></li><li><a href="#resolving-an-impasse-or-conflict" class="table-of-contents__link toc-highlight">Resolving an impasse or conflict</a></li><li><a href="#escalation" class="table-of-contents__link toc-highlight">Escalation</a></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/carbon-language/carbon-lang" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://discord.gg/ZjVdShJDAs" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://github.com/carbon-language/carbon-lang/blob/trunk/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer" class="footer__link-item">Code of Conduct<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div></div></footer></div>
+<script src="/assets/js/runtime~main.635df7c8.js"></script>
+<script src="/assets/js/main.7a2d97d0.js"></script>
+</body>
+</html>

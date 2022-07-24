@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper docs-doc-page docs-version-current plugin-docs plugin-id-project docs-doc-id-evolution">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Docusaurus v2.0.0-rc.1">
+<title data-rh="true">Evolution and governance | Carbon Language</title><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://emlai.github.io/project/evolution"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-project-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-project-current"><meta data-rh="true" property="og:title" content="Evolution and governance | Carbon Language"><meta data-rh="true" name="description" content="&lt;!--"><meta data-rh="true" property="og:description" content="&lt;!--"><link data-rh="true" rel="icon" href="/img/carbon-logo.png"><link data-rh="true" rel="canonical" href="https://emlai.github.io/project/evolution"><link data-rh="true" rel="alternate" href="https://emlai.github.io/project/evolution" hreflang="en"><link data-rh="true" rel="alternate" href="https://emlai.github.io/project/evolution" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.0141378e.css">
+<link rel="preload" href="/assets/js/runtime~main.635df7c8.js" as="script">
+<link rel="preload" href="/assets/js/main.7a2d97d0.js" as="script">
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
+<div role="region"><a href="#" class="skipToContent_fXgn">Skip to main content</a></div><nav class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Navigation bar toggle" class="navbar__toggle clean-btn" type="button" tabindex="0"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/carbon-logo.png" alt="Carbon Logo" class="themedImage_ToTc themedImage--light_HNdA"><img src="/img/carbon-logo.png" alt="Carbon Logo" class="themedImage_ToTc themedImage--dark_i4oU"></div><b class="navbar__title text--truncate">Carbon Language</b></a><a class="navbar__item navbar__link" href="/design">Design</a><a class="navbar__item navbar__link" href="/spec">Spec</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/project">Project</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/carbon-language/carbon-lang" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="searchBox_ZlJk"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div class="main-wrapper mainWrapper_z2l0 docsWrapper_BCFX"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docPage__5DB"><aside class="theme-doc-sidebar-container docSidebarContainer_b6E3"><div class="sidebar_njMd"><nav class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project">Project</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project/code_review">Code review</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project/contribution_tools">Contribution tools</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project/cpp_style_guide">C++ style guide</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project/design_style_guide">Language design style guide</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project/difficulties_improving_cpp">Difficulties improving C++</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/project/evolution">Evolution and governance</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project/faq">Project FAQ</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project/goals">Goals</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project/groups">Groups</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/project/principles">Principles</a><button aria-label="Toggle the collapsible sidebar category &#x27;Principles&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project/pull_request_workflow">Trunk-based pull-request GitHub workflow</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project/roadmap">Roadmap</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/project/roadmap_process">Roadmap process</a></li></ul></nav></div></aside><main class="docMainContainer_gTbr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_OVgt"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Evolution and governance</span><meta itemprop="position" content="1"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1>Evolution and governance</h1><h2 class="anchor anchorWithStickyNavbar_LWe7" id="table-of-contents">Table of contents<a class="hash-link" href="#table-of-contents" title="Direct link to heading">​</a></h2><ul><li><a href="#overview">Overview</a></li><li><a href="#proposals">Proposals</a><ul><li><a href="#life-of-a-proposal">Life of a proposal</a></li><li><a href="#proposal-roles">Proposal roles</a><ul><li><a href="#proposal-authors">Proposal authors</a></li><li><a href="#community">Community</a></li><li><a href="#active-contributors">Active contributors</a></li><li><a href="#carbon-leads">Carbon leads</a></li></ul></li><li><a href="#when-to-write-a-proposal">When to write a proposal</a></li><li><a href="#proposal-prs">Proposal PRs</a><ul><li><a href="#what-goes-in-the-proposal-document">What goes in the proposal document</a></li><li><a href="#open-questions">Open questions</a></li></ul></li><li><a href="#review-and-rfc-on-proposal-prs">Review and RFC on proposal PRs</a></li><li><a href="#blocking-issues">Blocking issues</a><ul><li><a href="#discussion-on-blocking-issues">Discussion on blocking issues</a></li></ul></li></ul></li><li><a href="#governance-structure">Governance structure</a><ul><li><a href="#carbon-leads-1">Carbon leads</a><ul><li><a href="#subteams">Subteams</a></li></ul></li><li><a href="#painter">Painter</a></li><li><a href="#adding-and-removing-governance-members">Adding and removing governance members</a></li></ul></li><li><a href="#acknowledgements">Acknowledgements</a></li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="overview">Overview<a class="hash-link" href="#overview" title="Direct link to heading">​</a></h2><p>Carbon&#x27;s evolution process uses <a href="#proposals">proposals</a> to evaluate and approve
+<a href="#when-to-write-a-proposal">significant changes</a> to the project or language.
+This process is designed to:</p><ul><li>Ensure these kinds of changes can receive feedback from the entire
+community.</li><li>Resolve questions and decide direction efficiently.</li><li>Create a clear log of rationale for why the project and language have
+evolved in particular directions.</li></ul><p>When there are questions, concerns, or issues with a proposal that need to be
+resolved, Carbon uses its <a href="#governance-structure">governance</a> system of
+<a href="#carbon-leads-1">Carbon leads</a> to decide how to move forward. Leads are
+fundamentally responsible for encouraging Carbon&#x27;s ongoing and healthy evolution
+and so also take on the critical steps of the evolution process for proposals.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="proposals">Proposals<a class="hash-link" href="#proposals" title="Direct link to heading">​</a></h2><p>These are primarily structured as GitHub pull requests that use a somewhat more
+formal document structure and process to ensure changes to the project or
+language are well explained, justified, and reviewed by the community.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="life-of-a-proposal">Life of a proposal<a class="hash-link" href="#life-of-a-proposal" title="Direct link to heading">​</a></h3><ul><li><p>Proposals consist of a PR (pull request) in GitHub that adds a document to
+the <a href="https://github.com/carbon-language/carbon-lang/blob/trunk/proposals/" target="_blank" rel="noopener noreferrer"><code>proposals/</code> directory</a> following
+<a href="https://github.com/carbon-language/carbon-lang/blob/trunk/proposals/scripts/template.md" target="_blank" rel="noopener noreferrer">the template</a>.</p></li><li><p>Proposal PRs start out in draft mode. When proposal PRs are ready, click on
+<a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review" target="_blank" rel="noopener noreferrer">&quot;Ready for review&quot;</a>,
+and change the
+<a href="https://github.com/carbon-language/carbon-lang/projects/1" target="_blank" rel="noopener noreferrer">Proposals project column</a>
+to &quot;RFC&quot;. The project column should be available as a dropdown under
+&quot;Projects&quot; on the PR.</p><ul><li><p>This will result in a Carbon lead being assigned to review the PR.</p></li><li><p>This also signifies an RFC (request for comment) from the entire
+community.</p></li></ul></li><li><p>Contributors are encouraged to react with a <em>thumbs-up</em> to proposal PRs if
+they are generally interested and supportive of the high level direction
+based on title and summary. Similarly, other reactions are encouraged to
+help surface contributor&#x27;s sentiment.</p></li><li><p>We use GitHub issues to discuss and track <em>blocking issues</em> with proposals,
+such as open questions or alternative approaches that may need further
+consideration. These are assigned to carbon-leads to decide.</p></li><li><p>A <a href="#carbon-leads-1">Carbon lead</a> will be assigned to a proposal PR. They are
+responsible for the basic review (or delegating that) as well as ultimately
+approving the PR.</p></li><li><p>The assigned lead should ensure that there is a reasonable degree of
+consensus among the contributors outside of the identified blocking issues.
+Contributors should have a reasonable chance to raise concerns, and where
+needed they should become blocking issues. Community consensus isn&#x27;t
+intended to be perfect though, and is ultimately a judgement call by the
+lead. When things are missed or mistakes are made here, we should just
+revert or fix-forward as usual.</p></li><li><p>Once a reasonable degree of community consensus is reached and the assigned
+lead finishes code review, the lead should
+<a href="/project/code_review#approving-the-change">approve</a> the PR. Any
+outstanding high-level concerns should be handled with blocking issues.</p></li><li><p>Optionally, the assigned lead can file a blocking issue for a one week final
+comment period when they approve. This is rarely needed, and only when it is
+both useful and important for the proposal to give extra time for community
+comments.</p></li><li><p>The leads are responsible for resolving any blocking issues for a proposal
+PR, including the one week comment period where resolving it indicates
+comments arrived which require the proposal to undergo further review.</p></li><li><p>The proposal PR can be merged once the assigned lead approves, all blocking
+issues have been decided, and any related decisions are incorporated.</p></li><li><p>If the leads choose to defer or reject the proposal, the reviewing lead
+should explain why and close the PR.</p></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="proposal-roles">Proposal roles<a class="hash-link" href="#proposal-roles" title="Direct link to heading">​</a></h3><p>It is also useful to see what the process looks like for different roles within
+the community. These perspectives are also the most critical to keep simple and
+easily understood.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="proposal-authors">Proposal authors<a class="hash-link" href="#proposal-authors" title="Direct link to heading">​</a></h4><p>For proposal authors, this should feel like a code review, with some broken out
+issues for longer discussion:</p><ul><li><p>Create a proposal document and draft PR following
+<a href="https://github.com/carbon-language/carbon-lang/blob/trunk/proposals/scripts/template.md" target="_blank" rel="noopener noreferrer">the template</a>.</p><ul><li><p><a href="https://github.com/carbon-language/carbon-lang/blob/trunk/proposals/scripts/new_proposal.py" target="_blank" rel="noopener noreferrer">new_proposal.py</a> helps create
+templated PRs.</p></li><li><p>If you have open questions, filing <a href="#blocking-issues">blocking issues</a>
+while preparing the PR can help resolve them quickly.</p></li></ul></li><li><p>When ready, click on
+<a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review" target="_blank" rel="noopener noreferrer">&quot;Ready for review&quot;</a>
+in GitHub, and change the
+<a href="https://github.com/carbon-language/carbon-lang/projects/1" target="_blank" rel="noopener noreferrer">Proposals project column</a>
+to &quot;RFC&quot;. The project column should be available as a dropdown under
+&quot;Projects&quot; on the PR.</p><ul><li><p>This will result in the PR being assigned to an individual for review.</p></li><li><p>This will also send the proposal as a broad RFC to the community.</p></li><li><p>While setting the &quot;RFC&quot; project column will also add the &quot;RFC&quot; label,
+the reverse is not true. Unfortunately, this is currently a limit of
+GitHub automation. Similarly, Adding the &quot;RFC&quot; project column currently
+does not set &quot;Ready for review&quot;.</p></li></ul></li><li><p>Address comments where you can and they make sense.</p></li><li><p>If you don&#x27;t see an obvious way to address comments, that&#x27;s OK.</p><ul><li><p>It&#x27;s great to engage a bit with the commenter to clarify their comment
+or why you don&#x27;t see an obvious way to address it, just like you would
+<a href="/project/code_review#responding-to-review-comments">in code review</a>.</p></li><li><p>If the commenter feels this is important, they can move it to a blocking
+issue for a longer discussion and resolution from the leads.</p></li><li><p>You don&#x27;t need to try to resolve everything yourself.</p></li></ul></li><li><p>Incorporate any changes needed based on the resolution of blocking issues.
+Once the leads have provided a resolution, it&#x27;s important to make progress
+with that direction.</p></li><li><p>When you both have
+<a href="/project/code_review#approving-the-change">approval</a> from the
+assigned lead and the last blocking issue is addressed, merge!</p><ul><li>If you end up making significant changes when incorporating resolved
+issues after the approval from the assigned lead, circle back for a
+fresh approval before merging, just like you would with code review.</li></ul></li></ul><h4 class="anchor anchorWithStickyNavbar_LWe7" id="community">Community<a class="hash-link" href="#community" title="Direct link to heading">​</a></h4><ul><li><p>We use the
+<a href="https://github.com/carbon-language/carbon-lang/projects/1" target="_blank" rel="noopener noreferrer">Proposals dashboard</a>
+to track proposals that are in RFC.</p><ul><li><p>Anyone that is interested can participate once a proposal is ready for
+review and in RFC.</p></li><li><p>It&#x27;s OK to only comment when particularly interested in a proposal, or
+when asked by one of the leads to help ensure thorough review. Not
+everyone needs to participate heavily in every RFC.</p></li><li><p>PRs that are in &quot;draft&quot; status in GitHub are considered
+works-in-progress. Check with the author before spending time reviewing
+these, and generally avoid distracting the author with comments unless
+they ask for them. The proposal may be actively undergoing edits.</p></li></ul></li><li><p>Read the proposal and leave comments to try to help make the proposal an
+improvement for Carbon.</p><ul><li>Note that progress and improvement are more important than perfection
+here!</li></ul></li><li><p>Try to make comments on proposals
+<a href="/project/code_review#writing-review-comments">constructive</a>.
+Suggest how the proposal could be better if at all possible.</p></li><li><p>If there is an open question or a critical blocking issue that needs to get
+resolved, move it to its own issue that the PR depends on, and focus the
+discussion there.</p><ul><li>The issue should focus on surfacing the important aspects of the
+tradeoff represented by the issue or open question, not on advocacy.</li></ul></li></ul><h4 class="anchor anchorWithStickyNavbar_LWe7" id="active-contributors">Active contributors<a class="hash-link" href="#active-contributors" title="Direct link to heading">​</a></h4><p>Everyone actively contributing to the evolution of Carbon should try to
+regularly:</p><ul><li><p>Give a thumbs-up or other reaction on any interesting PRs out for RFC to
+help surface the community&#x27;s sentiment around the high level idea or
+direction. Don&#x27;t worry about &quot;approving&quot; or the detailed text of the
+proposal here.</p></li><li><p>If interested and time permitting, dive into some RFCs and provide
+<a href="#community">community feedback</a>.</p></li></ul><h4 class="anchor anchorWithStickyNavbar_LWe7" id="carbon-leads">Carbon leads<a class="hash-link" href="#carbon-leads" title="Direct link to heading">​</a></h4><p><a href="#carbon-leads-1">Carbon leads</a> are responsible for making decisions rapidly and
+ensuring proposal PRs land:</p><ul><li><p>Rapidly resolve all blocking issues raised across any proposals.</p></li><li><p>When assigned a specific proposal PR:</p><ul><li><p>Make sure it gets both constructive general comments and good code
+review.</p></li><li><p>Ideally, you should directly participate in the code review, but it&#x27;s
+fine to ask others to help. However, ultimately you have to review and
+approve the PR.</p></li><li><p>Escalate any blocking issues without a resolution that are slowing down
+the proposal to the other leads.</p></li><li><p>Evaluate whether the community has had a reasonable chance to raise
+concerns and there is sufficient consensus to move forward given the
+decisions on the blocking issues. This doesn&#x27;t need to be perfect
+though. Here too, we prioritize progress over perfection. We can revert
+or fix-forward mistakes whenever necessary, especially for low-risk
+changes. In rare cases, an extended final comment period can be used
+when warranted for a proposal.</p></li><li><p>Once ready, approve and help the author merge the proposal.</p></li></ul></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="when-to-write-a-proposal">When to write a proposal<a class="hash-link" href="#when-to-write-a-proposal" title="Direct link to heading">​</a></h3><p>Any substantive change to Carbon -- whether the language, project,
+infrastructure, or otherwise -- should be done through an evolution proposal.
+The meaning of &quot;substantive&quot; is subjective, but will generally include:</p><ul><li>Any semantic or syntactic language change that isn&#x27;t fixing a bug.</li><li>Major changes to project infrastructure, including additions and removals.</li><li>Rolling back an accepted proposal, even if never executed.</li></ul><p>Changes which generally will not require a proposal are:</p><ul><li>Fixing typos or bugs that don&#x27;t change the meaning or intent.</li><li>Rephrasing or refactoring documentation for easier reading.</li><li>Minor infrastructure updates, improvements, setting changes, tweaks.</li></ul><p>If you&#x27;re not sure whether to write a proposal, please err on the side of
+writing a proposal. A team can always ask for a change to be made directly if
+they believe it doesn&#x27;t need review. Conversely, a reviewer might also ask that
+a pull request instead go through the full evolution process.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="proposal-prs">Proposal PRs<a class="hash-link" href="#proposal-prs" title="Direct link to heading">​</a></h3><p>A proposal PR should use the <code>proposal</code> label, have a descriptive title, and
+easily understood initial summary comment. Authors and leads are encouraged to
+edit both as necessary to ensure they give the best high-level understanding of
+the proposal possible.</p><p>A proposal PR will include a &quot;P-numbered&quot; <em>proposal document</em>,
+<code>proposals/pNNNN.md</code>, where <code>NNNN</code> is the pull request number. This file should
+be based on the <a href="https://github.com/carbon-language/carbon-lang/blob/trunk/proposals/scripts/template.md" target="_blank" rel="noopener noreferrer">proposal template file</a>.</p><p>When writing a proposal, try to keep it brief and focused to maximize the
+community&#x27;s engagement in it. Beyond the above structure, try to use
+<a href="https://en.wikipedia.org/wiki/Inverted_pyramid_(journalism)" target="_blank" rel="noopener noreferrer">Inverted Pyramid</a>
+or <a href="https://en.wikipedia.org/wiki/BLUF_(communication)" target="_blank" rel="noopener noreferrer">BLUF</a> writing style to
+help readers rapidly skim the material.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="what-goes-in-the-proposal-document">What goes in the proposal document<a class="hash-link" href="#what-goes-in-the-proposal-document" title="Direct link to heading">​</a></h4><p>The purpose of the proposal document is to present the case for deciding to
+adopt the proposal. Any information that feeds into making that decision, and
+that should not be maintained as part of our living design documentation,
+belongs in the proposal document. This includes background material to introduce
+the problem, comparisons to any alternative designs that were considered and any
+other current proposals in the same area, records of informal polls taken to
+determine community preferences, and rationale for the decision based on the
+project&#x27;s goals.</p><p>The proposal PR can contain related changes to the Carbon project, such as
+updates to the design documentation. Those changes form part of the proposal,
+and need not be additionally described in the proposal document beyond a mention
+in the &quot;Proposal&quot; section that such changes exist. For example:</p><div class="language-md codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-md codeBlock_bY9V thin-scrollbar"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token title important punctuation" style="color:#393A34">##</span><span class="token title important"> Proposal</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">See the proposed changes to the design documents.</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg class="copyButtonIcon_y97N" viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg class="copyButtonSuccessIcon_LjdS" viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div><p>Readers of proposals are expected to consult the PR or the git commit that
+merged the PR in order to understand the proposed changes.</p><p>The author of a proposal is not required to include changes to the design
+documentation as part of a proposal, and it may in some cases be preferable to
+decouple the proposal process from updating the design. When accepted, the
+proposal would then be implemented through a series of future PRs to the rest of
+the project, and the proposal document should describe what is being proposed in
+enough detail to validate that those future PRs properly implement the proposed
+direction.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="open-questions">Open questions<a class="hash-link" href="#open-questions" title="Direct link to heading">​</a></h4><p>Feel free to factor out open questions in a proposal to issues that you assign
+to the leads to resolve. You can even do this before sending the proposal for
+review. Even after it&#x27;s resolved, an open question issue can be reopened if new
+information comes up during the RFC.</p><p>When opening issues, add them to the
+<a href="https://github.com/carbon-language/carbon-lang/projects/2" target="_blank" rel="noopener noreferrer">&quot;Issues for leads&quot; project</a>
+under &quot;Questions&quot;. Carbon leads use this to locate and prioritize the issue for
+resolution.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="review-and-rfc-on-proposal-prs">Review and RFC on proposal PRs<a class="hash-link" href="#review-and-rfc-on-proposal-prs" title="Direct link to heading">​</a></h3><p>When a proposal PR is assigned to the
+<a href="https://github.com/orgs/carbon-language/teams/carbon-leads" target="_blank" rel="noopener noreferrer">carbon-leads GitHub group</a>,
+one of them will be assigned the PR. They are responsible for helping land that
+proposal, or explaining why the project won&#x27;t move forward in that direction.
+The assigned lead is also ultimately responsible for the code review on the PR.
+Proposals sent for review are also sent as an RFC to the entire community.</p><p>All active Carbon contributors are strongly encouraged to regularly skim the
+title and summary comment of proposals under RFC that are interesting to them.
+They should use GitHub reactions, including at least a thumbs-up, to show their
+interest and enthusiasm about the proposal, and help encourage the author.
+Writing proposals is <em>extremely hard work</em>, and we need to clearly show both
+interest in the proposed direction of Carbon and appreciation for the work put
+into the proposal. This is not about <em>approving</em> the proposal, or any of its
+details. It is completely fine and coherent to both give a thumbs-up to a
+proposal <em>and</em> provide a serious, blocking issue that needs to be resolved.</p><p><em>Anyone</em> in the community is welcome to participate in the RFC in detail if
+interested. However, not everyone needs to participate in every RFC. If a
+proposal is already getting actively and thoroughly reviewed, feel free to focus
+your time on other proposals with fewer commenters. Even if there are issues or
+problems discovered later, we can always fix them with follow-up proposals.</p><p>Both code review and high-level design comments are welcome. If an open question
+comes up or a high-level blocking issue is uncovered, feel free to move it to
+its own GitHub issue and assign it to the leads to resolve. That issue is also a
+good place to focus discussion on that specific topic rather than the main PR.</p><p>The assigned lead should approve proposals once the following criteria are met:</p><ul><li><p>It looks good from a code review perspective.</p></li><li><p>At least three thumbs-up reactions showing general community interest.</p></li><li><p>The community has had a sufficient opportunity to review the proposed
+change, given its scope and complexity.</p></li><li><p>Any remaining blocking issues are reasonably likely to resolve in a way that
+allows the proposal to move forward. It is fine if some are not fully
+decided, but a lead shouldn&#x27;t approve a proposal that&#x27;s unlikely to move
+forward.</p></li></ul><p>The last two criteria are fundamentally judgement calls for the lead to make,
+and we don&#x27;t try to formulate a rigid or fixed bar for them. If resolving the
+blocking issues requires significant changes, the author should also get a fresh
+approval from the assigned lead after those changes, just like they would with
+code review.</p><p>The assigned lead may also request a final comment period for the community when
+approving. This signals to the community that the proposal is likely to be
+merged once the blocking issues are resolved, and any remaining concerns need to
+be surfaced. The goal is to help uncover concerns that were hidden until it was
+clear that the proposal is likely to move forward. However, requesting a final
+comment period is not the default; the assigned lead should only do this when
+there is some reason to expect further community comment is especially important
+to solicit. Common cases to consider are contentious, complex, or dramatic
+changes to the language or project. Ultimately, whether this is important is a
+judgement call for the lead. This will be modeled by filing a blocking issue
+that resolves in one week when approving. This issue will also explain the
+motivation for requesting a final comment period.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="blocking-issues">Blocking issues<a class="hash-link" href="#blocking-issues" title="Direct link to heading">​</a></h3><p>We use blocking GitHub issues to track open questions or other discussions that
+the leads are asked to resolve. Any time a blocking issue is filed, that issue
+forms both the primary discussion thread and where the leads signal how it is
+resolved. We use issues both to track that there is a specific resolution
+expected and that there may be dependencies.</p><p>We add blocking issues to the
+<a href="https://github.com/carbon-language/carbon-lang/projects/2" target="_blank" rel="noopener noreferrer">&quot;Issues for leads&quot; project</a>
+under &quot;Blocking issues&quot;. Carbon leads use this to locate and prioritize the
+issue for resolution.</p><p>These issues can be created at any time and by any one. Issues can be created
+while the proposal is being drafted in order to help inform specific content
+that should go into the proposal. It is even fine to create an issue first, even
+before a proposal exists, as an open question about whether to produce a
+particular proposal, or what a proposal that is being planned should say. For
+issues which don&#x27;t (yet) have a specific proposal PR associated with them, at
+some point the leads may ask that a proposal be created to help collect in a
+more cohesive place a written overview of the issue and related information, but
+this process need not be strictly or rigidly bound to having proposal text.</p><p>Avoid using issues for things that are just requests or suggestions on a
+proposal PR. If in doubt, start off with a simple comment on the PR and see if
+there is any disagreement -- everyone may already be aligned and agree. When a
+comment does seem worth turning into an issue, don&#x27;t worry about that as the
+author or the commenter. Getting the leads to resolve disagreement isn&#x27;t a bad
+thing for anyone involved. This should be seen as a friendly way to move the
+discussion out to its own forum where it&#x27;ll get resolved, and focus the PR on
+improving the proposal and getting it ready to merge.</p><p>When an issue is created from a discussion on a PR, and after the discussion on
+the <em>issue</em> all the original parties come to a happy agreement, it&#x27;s totally OK
+to close the issue and move back to the code review in the PR. Anyone who would
+prefer the leads to still chime in can re-open the issue and the leads will
+follow up, even if it&#x27;s only to get confirmation that everyone <em>did</em> end up
+happy with the resolution. At the end of the day, while it&#x27;s fine to resolve an
+issue that <em>everyone</em> actually ended up agreeing about (maybe once some
+confusion is addressed), ultimately the leads are responsible for resolving
+these issues and there is no pressure on anyone else to do so.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="discussion-on-blocking-issues">Discussion on blocking issues<a class="hash-link" href="#discussion-on-blocking-issues" title="Direct link to heading">​</a></h4><p>Discussion on these issues, especially contentious ones, should endeavor to
+focus on surfacing information and highlighting the nature of the tradeoff
+implied by the decisions available. This is in contrast to focusing on advocacy
+or persuasion. The goal of the issues shouldn&#x27;t be to persuade or convince the
+leads to make a specific decision, but to give the leads the information they
+need to make the best decision for Carbon.</p><p>It&#x27;s fine that some people have a specific belief of which decision would be
+best; however, framing their contributions to the discussion as surfacing the
+information that underpins that belief will make the discussion more
+constructive, welcoming, and effective. Overall, everyone should strive to focus
+on data-based arguments to the extent they can, minimizing their use of appeals
+to emotion or excessive rhetoric.</p><p>None of this should preclude gathering information like polls of opinion among
+groups, or signaling agreement. Where community members stand and how many agree
+with that stance on any issue <em>is</em> information, and useful to surface.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="governance-structure">Governance structure<a class="hash-link" href="#governance-structure" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="carbon-leads-1">Carbon leads<a class="hash-link" href="#carbon-leads-1" title="Direct link to heading">​</a></h3><p>Carbon leads are responsible for reviewing proposals and
+<a href="/project/roadmap_process">setting Carbon&#x27;s roadmap</a> and managing evolution. This team
+should broadly understand both the users of Carbon and the project itself in
+order to factor different needs, concerns, and pressures into a
+<a href="https://en.wikipedia.org/wiki/Consensus_decision-making" target="_blank" rel="noopener noreferrer">consensus decision-making process</a>.</p><p>While leads may approve proposals individually, they should decide on issues
+raised to them using
+<a href="https://en.wikipedia.org/wiki/Consensus_decision-making#Blocking" target="_blank" rel="noopener noreferrer">blocking consensus</a>
+with a quorum of two.</p><p>Carbon&#x27;s current leads are:</p><ul><li><a href="https://github.com/chandlerc" target="_blank" rel="noopener noreferrer">chandlerc</a></li><li><a href="https://github.com/KateGregory" target="_blank" rel="noopener noreferrer">KateGregory</a></li><li><a href="https://github.com/zygoloid" target="_blank" rel="noopener noreferrer">zygoloid</a></li></ul><h4 class="anchor anchorWithStickyNavbar_LWe7" id="subteams">Subteams<a class="hash-link" href="#subteams" title="Direct link to heading">​</a></h4><p>As Carbon grows, the leads may decide to form subteams that provide leadership
+for specific areas. These subteams are expected to largely organize in a similar
+fashion to the Carbon leads, with a more narrow focus and scope. Subteam
+decisions may be escalated to the Carbon leads.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="painter">Painter<a class="hash-link" href="#painter" title="Direct link to heading">​</a></h3><p>Whenever possible, we want Carbon to make syntax and other decisions based on
+understanding its users, data, and the underlying goals of the language.
+However, there will be times when those don&#x27;t provide a clear cut rationale for
+any particular decision -- all of the options are fine/good and someone simply
+needs to choose which color to paint the bikeshed. The goal of the painter role
+is to have a simple way to quickly decide these points.</p><p>Leads and teams may defer a decision to the painter if there is a consensus that
+it is merely a bikeshed in need of paint. They may also open an issue to revisit
+the color with data and/or user studies of some kind. This allows progress to be
+unblocked while also ensuring we return to issues later and attempt to find more
+definite rationale.</p><p>The painter is a single person in order to keep decisions around taste or
+aesthetics reasonably consistent.</p><p>The current painter is:</p><ul><li><a href="https://github.com/chandlerc" target="_blank" rel="noopener noreferrer">chandlerc</a></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="adding-and-removing-governance-members">Adding and removing governance members<a class="hash-link" href="#adding-and-removing-governance-members" title="Direct link to heading">​</a></h3><p>Any member of Carbon governance may step down or be replaced when they are no
+longer able to contribute effectively. The Carbon leads can nominate and decide
+on adding, removing, or replacing members using the usual evolution processes.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="acknowledgements">Acknowledgements<a class="hash-link" href="#acknowledgements" title="Direct link to heading">​</a></h2><p>Our governance and evolution process is influenced by the
+<a href="https://github.com/rust-lang/rfcs" target="_blank" rel="noopener noreferrer">Rust</a>,
+<a href="https://swift.org/contributing/" target="_blank" rel="noopener noreferrer">Swift</a>, and C++ processes. Many thanks to
+these communities for providing a basis.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/carbon-language/carbon-lang/blob/trunk/docs/project/evolution.md" target="_blank" rel="noreferrer noopener" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages navigation"><a class="pagination-nav__link pagination-nav__link--prev" href="/project/difficulties_improving_cpp"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Difficulties improving C++</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/project/faq"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Project FAQ</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#table-of-contents" class="table-of-contents__link toc-highlight">Table of contents</a></li><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#proposals" class="table-of-contents__link toc-highlight">Proposals</a><ul><li><a href="#life-of-a-proposal" class="table-of-contents__link toc-highlight">Life of a proposal</a></li><li><a href="#proposal-roles" class="table-of-contents__link toc-highlight">Proposal roles</a></li><li><a href="#when-to-write-a-proposal" class="table-of-contents__link toc-highlight">When to write a proposal</a></li><li><a href="#proposal-prs" class="table-of-contents__link toc-highlight">Proposal PRs</a></li><li><a href="#review-and-rfc-on-proposal-prs" class="table-of-contents__link toc-highlight">Review and RFC on proposal PRs</a></li><li><a href="#blocking-issues" class="table-of-contents__link toc-highlight">Blocking issues</a></li></ul></li><li><a href="#governance-structure" class="table-of-contents__link toc-highlight">Governance structure</a><ul><li><a href="#carbon-leads-1" class="table-of-contents__link toc-highlight">Carbon leads</a></li><li><a href="#painter" class="table-of-contents__link toc-highlight">Painter</a></li><li><a href="#adding-and-removing-governance-members" class="table-of-contents__link toc-highlight">Adding and removing governance members</a></li></ul></li><li><a href="#acknowledgements" class="table-of-contents__link toc-highlight">Acknowledgements</a></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/carbon-language/carbon-lang" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://discord.gg/ZjVdShJDAs" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://github.com/carbon-language/carbon-lang/blob/trunk/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer" class="footer__link-item">Code of Conduct<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div></div></footer></div>
+<script src="/assets/js/runtime~main.635df7c8.js"></script>
+<script src="/assets/js/main.7a2d97d0.js"></script>
+</body>
+</html>
