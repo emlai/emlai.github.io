@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper docs-doc-page docs-version-current plugin-docs plugin-id-default docs-doc-id-docs/design/generics/goals">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Docusaurus v2.0.0-rc.1">
+<title data-rh="true">Generics: Goals | Carbon Language</title><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://carbon-language.github.io/docs/design/generics/goals/"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Generics: Goals | Carbon Language"><meta data-rh="true" name="description" content="&lt;!--"><meta data-rh="true" property="og:description" content="&lt;!--"><link data-rh="true" rel="icon" href="/img/carbon-logo.png"><link data-rh="true" rel="canonical" href="https://carbon-language.github.io/docs/design/generics/goals/"><link data-rh="true" rel="alternate" href="https://carbon-language.github.io/docs/design/generics/goals/" hreflang="en"><link data-rh="true" rel="alternate" href="https://carbon-language.github.io/docs/design/generics/goals/" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.868a9bd8.css">
+<link rel="preload" href="/assets/js/runtime~main.576a8e32.js" as="script">
+<link rel="preload" href="/assets/js/main.52935302.js" as="script">
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
+<div role="region"><a href="#" class="skipToContent_fXgn">Skip to main content</a></div><nav class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Navigation bar toggle" class="navbar__toggle clean-btn" type="button" tabindex="0"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/carbon-logo.png" alt="Carbon Logo" class="themedImage_ToTc themedImage--light_HNdA"><img src="/img/carbon-logo.png" alt="Carbon Logo" class="themedImage_ToTc themedImage--dark_i4oU"></div><b class="navbar__title text--truncate">Carbon Language</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/design/">Design</a><a class="navbar__item navbar__link" href="/docs/project/">Project</a><a class="navbar__item navbar__link" href="/docs/guides/">Guides</a><a class="navbar__item navbar__link" href="/docs/spec/">Spec</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/carbon-language/carbon-lang" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="searchBox_ZlJk"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div class="main-wrapper mainWrapper_z2l0 docsWrapper_BCFX"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docPage__5DB"><aside class="theme-doc-sidebar-container docSidebarContainer_b6E3"><div class="sidebar_njMd"><nav class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/design/">Language design</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/design/aliases/">Aliases</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/design/blocks_and_statements/">Blocks and statements</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/design/classes/">Classes</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/docs/design/code_and_name_organization/">Code and name organization</a><button aria-label="Toggle the collapsible sidebar category &#x27;Code and name organization&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/docs/design/control_flow/">Control flow</a><button aria-label="Toggle the collapsible sidebar category &#x27;Control flow&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/docs/design/expressions/">Expressions</a><button aria-label="Toggle the collapsible sidebar category &#x27;Expressions&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/design/functions/">Functions</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" aria-expanded="true" href="/docs/design/generics/">Generics</a><button aria-label="Toggle the collapsible sidebar category &#x27;Generics&#x27;" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/design/generics/appendix-coherence/">Carbon: alternatives to coherence</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/design/generics/details/">Generics: Details</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/design/generics/goals/">Generics: Goals</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/design/generics/overview/">Generics: Overview</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/design/generics/terminology/">Generics: Terminology</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/docs/design/interoperability/">Bidirectional interoperability with C/C++</a><button aria-label="Toggle the collapsible sidebar category &#x27;Bidirectional interoperability with C/C++&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/docs/design/lexical_conventions/">Lexical conventions</a><button aria-label="Toggle the collapsible sidebar category &#x27;Lexical conventions&#x27;" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/design/metaprogramming/">Metaprogramming</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/design/name_lookup/">Name lookup</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/design/naming_conventions/">Naming conventions</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/design/pattern_matching/">Pattern matching</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/design/primitive_types/">Primitive types</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/design/templates/">Templates</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/design/tuples/">Tuples</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/design/type_inference/">Type inference</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/design/variables/">Variables</a></li></ul></nav></div></aside><main class="docMainContainer_gTbr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_OVgt"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/docs/design/generics/"><span itemprop="name">Generics</span></a><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Generics: Goals</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1>Generics: Goals</h1><h2 class="anchor anchorWithStickyNavbar_LWe7" id="table-of-contents">Table of contents<a class="hash-link" href="#table-of-contents" title="Direct link to heading">​</a></h2><ul><li><a href="#purpose-of-this-document">Purpose of this document</a></li><li><a href="#background">Background</a><ul><li><a href="#generic-parameters">Generic parameters</a></li><li><a href="#interfaces">Interfaces</a></li><li><a href="#relationship-to-templates">Relationship to templates</a></li></ul></li><li><a href="#goals">Goals</a><ul><li><a href="#use-cases">Use cases</a><ul><li><a href="#generic-programming">Generic programming</a></li><li><a href="#upgrade-path-from-c-abstract-interfaces">Upgrade path from C++ abstract interfaces</a></li><li><a href="#dependency-injection">Dependency injection</a></li><li><a href="#generics-instead-of-open-overloading-and-adl">Generics instead of open overloading and ADL</a></li></ul></li><li><a href="#performance">Performance</a></li><li><a href="#better-compiler-experience">Better compiler experience</a></li><li><a href="#encapsulation">Encapsulation</a></li><li><a href="#predictability">Predictability</a></li><li><a href="#dispatch-control">Dispatch control</a></li><li><a href="#upgrade-path-from-templates">Upgrade path from templates</a></li><li><a href="#path-from-regular-functions">Path from regular functions</a></li><li><a href="#coherence">Coherence</a></li><li><a href="#no-novel-name-lookup">No novel name lookup</a></li><li><a href="#learn-from-others">Learn from others</a></li><li><a href="#interfaces-are-nominal">Interfaces are nominal</a></li><li><a href="#interop-and-evolution">Interop and evolution</a></li><li><a href="#bridge-for-c-customization-points">Bridge for C++ customization points</a></li></ul></li><li><a href="#what-we-are-not-doing">What we are not doing</a><ul><li><a href="#not-the-full-flexibility-of-templates">Not the full flexibility of templates</a></li><li><a href="#template-use-cases-that-are-out-of-scope">Template use cases that are out of scope</a></li><li><a href="#generics-will-be-checked-when-defined">Generics will be checked when defined</a></li><li><a href="#specialization-strategy">Specialization strategy</a></li></ul></li><li><a href="#references">References</a></li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="purpose-of-this-document">Purpose of this document<a class="hash-link" href="#purpose-of-this-document" title="Direct link to heading">​</a></h2><p>This document attempts to clarify our goals for the design of the generics
+feature for Carbon. While these are not strict requirements, they represent the
+yardstick by which we evaluate design decisions. We do expect to achieve most of
+these goals, though some of these goals are somewhat aspirational or
+forward-looking.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="background">Background<a class="hash-link" href="#background" title="Direct link to heading">​</a></h2><p>Carbon will support
+<a href="/docs/design/generics/terminology/#generic-versus-template-parameters">generics</a> to support generic
+programming by way of
+<a href="/docs/design/generics/terminology/#parameterized-language-constructs">parameterization of language constructs</a>
+with <a href="/docs/design/generics/terminology/#early-versus-late-type-checking">early type checking</a> and
+<a href="/docs/design/generics/terminology/#complete-definition-checking">complete definition checking</a>.</p><p>This is in contrast with the
+<a href="https://en.wikipedia.org/wiki/Duck_typing#Templates_or_generic_types" target="_blank" rel="noopener noreferrer">compile-time duck typing</a>
+approach of C++ templates, and <em>in addition</em> to
+<a href="#relationship-to-templates">template support in Carbon</a>, if we decide to
+support templates in Carbon beyond interoperability with C++ templates.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="generic-parameters">Generic parameters<a class="hash-link" href="#generic-parameters" title="Direct link to heading">​</a></h3><p>Generic functions and generic types will all take some &quot;generic parameters&quot;,
+which will frequently be types, and in some cases will be
+<a href="/docs/design/generics/terminology/#deduced-parameter">deduced</a> from the types of the values of
+explicit parameters.</p><p>If a generic parameter is a type, the generic function&#x27;s signature can specify
+constraints that the caller&#x27;s type must satisfy. For example, a resizable array
+type (like C++&#x27;s <code>std::vector</code>) might have a generic type parameter with the
+constraint that the type must be movable and have a static size. A sort function
+might apply to any array whose elements are comparable and movable.</p><p>A constraint might involve multiple generic parameters. For example, a merge
+function might apply to two arbitrary containers so long as their elements have
+the same type.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="interfaces">Interfaces<a class="hash-link" href="#interfaces" title="Direct link to heading">​</a></h3><p>We need some way to express the constraints on a generic type parameter. In
+Carbon we express these &quot;type constraints&quot; by saying we restrict to types that
+implement specific <a href="/docs/design/generics/terminology/#interface"><em>interfaces</em></a>. Interfaces describe
+an API a type could implement; for example, it might specify a set of functions,
+including names and signatures. A type implementing an interface may be passed
+as a generic type argument to a function that has that interface as a
+requirement of its generic type parameter. Then, the functions defined in the
+interface may be called in the body of the function. Further, interfaces have
+names that allow them to be reused.</p><p>Similar compile-time and run-time constructs may be found in other programming
+languages:</p><ul><li><a href="https://doc.rust-lang.org/book/ch10-02-traits.html" target="_blank" rel="noopener noreferrer">Rust&#x27;s traits</a></li><li><a href="https://docs.swift.org/swift-book/LanguageGuide/Protocols.html" target="_blank" rel="noopener noreferrer">Swift&#x27;s protocols</a></li><li><a href="https://en.wikipedia.org/wiki/Interface_(Java)" target="_blank" rel="noopener noreferrer">Java interfaces</a></li><li><a href="https://en.wikipedia.org/wiki/Concepts_(C%2B%2B)" target="_blank" rel="noopener noreferrer">C++ concepts</a>
+(compile-time only)</li><li><a href="https://en.wikipedia.org/wiki/Class_(computer_programming)#Abstract_and_concrete" target="_blank" rel="noopener noreferrer">Abstract base classes</a>
+in C++, etc. (run-time only)</li><li><a href="https://gobyexample.com/interfaces" target="_blank" rel="noopener noreferrer">Go interfaces</a> (run-time only)</li></ul><p>In addition to specifying the methods available on a type, we may in the future
+expand the role of interfaces to allow other type constraints, such as on size,
+prefix of the data layout, specified method implementations, tests that must
+pass, etc. This might be part of making interfaces as expressive as classes, as
+part of a strategy to migrate to a future version of Carbon that uses interfaces
+instead of, rather than in addition to, standard inheritance-and-classes
+object-oriented language support. For the moment, everything beyond specifying
+the <em>methods</em> available is out of scope.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="relationship-to-templates">Relationship to templates<a class="hash-link" href="#relationship-to-templates" title="Direct link to heading">​</a></h3><p>The entire idea of statically typed languages is that coding against specific
+types and interfaces is a better model and experience. Unfortunately, templates
+don&#x27;t provide many of those benefits to programmers until it&#x27;s too late, when
+users are consuming the API. Templates also come with high overhead, such as
+<a href="#better-compiler-experience">template error messages</a>.</p><p>We want Carbon code to move towards more rigorously type checked constructs.
+However, existing C++ code is full of unrestricted usage of compile-time
+duck-typed templates. They are incredibly convenient to write and so likely will
+continue to exist for a long time.</p><p>The question of whether Carbon has direct support for templates is out of scope
+for this document. The generics design is not completely separate from
+templates, so it is written as if Carbon will have its own templating system. It
+is assumed to be similar to C++ templates with some specific changes:</p><ul><li>It may have some limitations to be more compatible with generics, much like
+how we
+<a href="#generics-instead-of-open-overloading-and-adl">restrict overloading</a>.</li><li>We likely will have a different method of selecting between different
+template instantiations, since
+<a href="https://en.wikipedia.org/wiki/Substitution_failure_is_not_an_error" target="_blank" rel="noopener noreferrer">SFINAE</a>
+makes it difficult to deliver high quality compiler diagnostics.</li></ul><p>We assume Carbon will have templates for a few different reasons:</p><ul><li>Carbon generics will definitely have to interact with <em>C++</em> templates, and
+many of the issues will be similar.</li><li>We want to leave room in the design for templates, since it seems like it
+would be easier to remove templates if they are not pulling their weight
+than figure out how to add them in if they turn out to be needed.</li><li>We may want to have templates in Carbon as a temporary measure, to make it
+easier for users to transition off of C++ templates.</li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="goals">Goals<a class="hash-link" href="#goals" title="Direct link to heading">​</a></h2><p>Our goal for generics support in Carbon is to get most of the expressive
+benefits of C++ templates and open overloading with fewer downsides.
+Additionally, we want to support some dynamic dispatch use cases; for example,
+in cases that inheritance struggles with.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="use-cases">Use cases<a class="hash-link" href="#use-cases" title="Direct link to heading">​</a></h3><p>To clarify the expressive range we are aming for, here are some specific use
+cases we expect Carbon generics to cover.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="generic-programming">Generic programming<a class="hash-link" href="#generic-programming" title="Direct link to heading">​</a></h4><p>We in particular want to support
+<a href="https://en.wikipedia.org/wiki/Generic_programming" target="_blank" rel="noopener noreferrer">generic programming</a>,
+including:</p><ul><li>Containers: arrays, maps, lists, and more complicated data structures like
+trees and graphs</li><li>Algorithms: sort, search</li><li>Wrappers: optional, variant, expected/result, smart pointers</li><li>Parameterized numeric types: <code>std::complex&lt;T&gt;</code></li><li>Configurable and parametric APIs: the storage-customized <code>std::chrono</code> APIs</li><li><a href="https://en.wikipedia.org/wiki/Modern_C%2B%2B_Design#Policy-based_design" target="_blank" rel="noopener noreferrer">Policy-based design</a></li></ul><p>These would generally involve static, compile-time type arguments, and so would
+generally be used with <a href="#dispatch-control">static dispatch</a>.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="upgrade-path-from-c-abstract-interfaces">Upgrade path from C++ abstract interfaces<a class="hash-link" href="#upgrade-path-from-c-abstract-interfaces" title="Direct link to heading">​</a></h4><p>Interfaces in C++ are often represented by abstract base classes. Generics
+should offer an alternative that does not rely on inheritance. This means looser
+coupling and none of the problems of multiple inheritance. Some people, such as
+<a href="https://sean-parent.stlab.cc/papers-and-presentations/#better-code-runtime-polymorphism" target="_blank" rel="noopener noreferrer">Sean Parent</a>,
+advocate for runtime polymorphism patterns in C++ that avoid inheritance because
+it can cause runtime performance, correctness, and code maintenance problems in
+some situations. Those patterns require a lot of boilerplate and complexity in
+C++. It would be nice if those patterns were simpler to express with Carbon
+generics. More generally, Carbon generics will provide an alternative for those
+situations inheritance doesn&#x27;t handle as well. As a specific example, we would
+like Carbon generics to supplant the need to support multiple inheritance in
+Carbon.</p><p>This is a case that would use <a href="#dispatch-control">dynamic dispatch</a>.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="dependency-injection">Dependency injection<a class="hash-link" href="#dependency-injection" title="Direct link to heading">​</a></h4><p>Types which only support subclassing for test stubs and mocks, as in
+<a href="https://en.wikipedia.org/wiki/Dependency_injection" target="_blank" rel="noopener noreferrer">&quot;dependency injection&quot;</a>,
+should be able to easily migrate to generics. This extends outside the realm of
+testing, allowing general configuration of how dependencies can be satisfied.
+For example, generics might be used to configure how a library writes logs.</p><p>This would allow you to avoid the runtime overhead of virtual functions, using
+<a href="#dispatch-control">static dispatch</a> without the
+<a href="#better-compiler-experience">poor build experience of templates</a>.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="generics-instead-of-open-overloading-and-adl">Generics instead of open overloading and ADL<a class="hash-link" href="#generics-instead-of-open-overloading-and-adl" title="Direct link to heading">​</a></h4><p>One name lookup problem we would like to avoid is caused by open overloading.
+Overloading is where you provide multiple implementations of a function with the
+same name, and the implementation used in a specific context is determined by
+the argument types. Open overloading is overloading where the overload set is
+not restricted to a single file or library. This works with
+<a href="https://en.wikipedia.org/wiki/Argument-dependent_name_lookup" target="_blank" rel="noopener noreferrer">Argument-dependent lookup</a>,
+or <a href="https://en.cppreference.com/w/cpp/language/adl" target="_blank" rel="noopener noreferrer">ADL</a>, a mechanism for
+enabling open overloading without having to reopen the namespace where the
+function was originally defined. Together these enable
+<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html" target="_blank" rel="noopener noreferrer">C++ customization points</a>.</p><p>This is commonly used to provide a type-specific implementation of some
+operation, but doesn&#x27;t provide any enforcement of consistency across the
+different overloads. It makes the meaning of code dependent on which overloads
+are imported, and is at odds with being able to type check a function
+generically.</p><p>Our goal is to address this use case, known more generally as
+<a href="https://eli.thegreenplace.net/2016/the-expression-problem-and-its-solutions" target="_blank" rel="noopener noreferrer">the expression problem</a>,
+with a generics mechanism that does enforce consistency so that type checking is
+possible without seeing all implementations. This will be Carbon&#x27;s replacement
+for open overloading. As a consequence, Carbon generics will need to be able to
+support operator overloading.</p><p>A specific example is the absolute value function <code>Abs</code>. We would like to write
+<code>Abs(x)</code> for a variety of types. For some types <code>T</code>, such as <code>Int32</code> or
+<code>Float64</code>, the return type will be the same <code>T</code>. For other types, such as
+<code>Complex64</code> or <code>Quaternion</code>, the return type will be different. The generic
+functions that call <code>Abs</code> will need a way to specify whether they only operate
+on <code>T</code> such that <code>Abs</code> has signature <code>T -&gt; T</code>.</p><p>This does create an issue when interoperating with C++ code using open
+overloading, which will
+<a href="#bridge-for-c-customization-points">need to be addressed</a>.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="performance">Performance<a class="hash-link" href="#performance" title="Direct link to heading">​</a></h3><p>For any real-world C++ template, there shall be an idiomatic reformulation in
+Carbon generics that has equal or better performance.
+<a href="/docs/project/goals/#performance-critical-software">Performance is the top priority for Carbon</a>,
+and we expect to use generics pervasively, and so they can&#x27;t compromise that
+goal in release builds.</p><p><strong>Nice to have:</strong> There are cases where we should aim to do better than C++
+templates. For example, the additional structure of generics should make it
+easier to reduce generated code duplication, reducing code size and cache
+misses.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="better-compiler-experience">Better compiler experience<a class="hash-link" href="#better-compiler-experience" title="Direct link to heading">​</a></h3><p>Compared to C++ templates, we expect to reduce build times, particularly in
+development builds. We also expect the compiler to be able to report clearer
+errors, and report them earlier in the build process.</p><p>One source of improvement is that the bodies of generic functions and types can
+be type checked once when they are defined, instead of every time they are used.
+This is both a reduction in the total work done, and how errors can be reported
+earlier. On use, the errors can be a lot clearer since they will be of the form
+&quot;argument did not satisfy function&#x27;s contract as stated in its signature&quot;
+instead of &quot;substitution failed at this line of the function&#x27;s implementation.&quot;</p><p><strong>Nice to have:</strong> In development builds, we will have the option of using
+<a href="#dispatch-control">dynamic dispatch</a> to reduce build times. We may also be able
+to reduce the amount of redundant compilation work even with the
+<a href="#dispatch-control">static strategy</a> by identifying instantiations with the same
+arguments or identical implementations and only generating code for them once.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="encapsulation">Encapsulation<a class="hash-link" href="#encapsulation" title="Direct link to heading">​</a></h3><p>With a template, the implementation is part of the interface and types are only
+checked when the function is called and the template is instantiated.</p><p>A generic function is type checked when it is defined, and type checking can&#x27;t
+use any information that is only known when the function is instantiated such as
+the exact argument types. Furthermore, calls to a generic function may be type
+checked using only its declaration, not its body. You should be able to call a
+generic function using only a forward declaration.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="predictability">Predictability<a class="hash-link" href="#predictability" title="Direct link to heading">​</a></h3><p>A general property of generics is they are more predictable than templates. They
+make clear when a type satisfies the requirements of a function; they have a
+documented contract. Further, that contract is enforced by the compiler, not
+sensitive to implementation details in the function body. This eases evolution
+by reducing (but not eliminating) the impact of
+<a href="https://www.hyrumslaw.com/" target="_blank" rel="noopener noreferrer">Hyrum&#x27;s law</a>.</p><p><strong>Nice to have:</strong> We also want well-defined boundaries between what is legal and
+not. This is &quot;will my code be accepted by the compiler&quot; predictability. We would
+prefer to avoid algorithms in the compiler with the form &quot;run for up to N steps
+and report an error if it isn&#x27;t resolved by then.&quot; For example, C++ compilers
+will typically have a template recursion limit. With generics, these problems
+arise due to trying to reason whether something is legal in all possible
+instantiations, rather than with specific, concrete types.</p><p>Some of this is likely unavoidable or too costly to avoid, as most existing
+generics systems
+<a href="https://3fx.ch/typing-is-hard.html" target="_blank" rel="noopener noreferrer">have undecidable aspects to their type system</a>,
+including <a href="https://sdleffler.github.io/RustTypeSystemTuringComplete/" target="_blank" rel="noopener noreferrer">Rust</a> and
+<a href="https://forums.swift.org/t/swift-type-checking-is-undecidable/39024" target="_blank" rel="noopener noreferrer">Swift</a>. We
+fully expect there to be metaprogramming facilities in Carbon that will be able
+to execute arbitrary Turing machines, with infinite loops and undecidable
+stopping criteria. We don&#x27;t see this as a problem though, just like we don&#x27;t
+worry about trying to make the compiler reliably prevent you from writing
+programs that don&#x27;t terminate.</p><p>We <em>would</em> like to distinguish &quot;the executed steps are present in the program&#x27;s
+source&quot; from &quot;the compiler has to search for a proof that the code is legal.&quot; In
+the former case, the compiler can surface a problem to the user by pointing to
+lines of code in a trace of execution. The user could employ traditional
+debugging techniques to refine their understanding until they can determine a
+fix. What we want to avoid is the latter case, since it has bad properties:</p><ul><li>Error messages end up in the form: &quot;this was too complicated to figure out,
+I eventually gave up.&quot;</li><li>Little in the way of actionable feedback on how to fix problems.</li><li>Not much the user can do to debug problems.</li><li>If the compiler is currently right at a limit for figuring something out, it
+is easy to imagine a change to a distant dependency can cause it to suddenly
+stop compiling.</li></ul><p>If we can&#x27;t find acceptable restrictions to make problems efficiently decidable,
+the next best solution is to require the proof to be in the source instead of
+derived by the compiler. If authoring the proof is too painful for the user, the
+we should invest in putting the proof search into IDEs or other tooling.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="dispatch-control">Dispatch control<a class="hash-link" href="#dispatch-control" title="Direct link to heading">​</a></h3><p>Enable simple user control of whether to use dynamic or static dispatch.</p><p><strong>Implementation strategy:</strong> There are two strategies for generating code for
+generic functions:</p><ul><li>Static specialization strategy: Like template parameters, the values for
+generic parameters must be statically known at the callsite, or known to be
+a generic parameter to the calling function. This can generate separate,
+specialized versions of each combination of generic and template arguments,
+in order to optimize for those types or values.</li><li>Dynamic strategy: This is when the compiler generates a single version of
+the function that uses runtime dispatch to get something semantically
+equivalent to separate instantiation, but likely with different size, build
+time, and performance characteristics.</li></ul><p>By default, we expect the implementation strategy to be controlled by the
+compiler, and not semantically visible to the user. For example, the compiler
+might use the static strategy for release builds and the dynamic strategy for
+development. Or it might choose between them on a more granular level based on
+code analysis, specific features used in the code, or profiling -- maybe some
+specific specializations are needed for performance, but others would just be
+code bloat.</p><p>We require that all generic functions can be compiled using the static
+specialization strategy. For example, the values for generic parameters must be
+statically known at the callsite. Other limitations are
+<a href="#specialization-strategy">listed below</a>.</p><p><strong>Nice to have:</strong> It is desirable that the majority of functions with generic
+parameters also support the dynamic strategy. Specific features may prevent the
+compiler from using the dynamic strategy, but they should ideally be relatively
+rare, and easy to identify. Language features should avoid making it observable
+whether function code generated once or many times. For example, you should not
+be able to take the address of a function with generic parameters, or determine
+if a function was instantiated more than once using function-local static
+variables.</p><p>There are a few obstacles to supporting dynamic dispatch efficiently, which may
+limit the extent it is used automatically by implementations. For example, the
+following features would benefit substantially from guaranteed monomorphization:</p><ul><li>Field packing in class layout. For example, packing a <code>Bool</code> into the lower
+bits of a pointer, or packing bit-fields with generic widths.</li><li>Allocating local variables in stack storage. Without monomorphization, we
+would need to perform dynamic memory allocation -- whether on the stack or
+the heap -- for local variables whose sizes depend on generic parameters.</li><li>Passing parameters to functions. We cannot pass values of generic types in
+registers.</li></ul><p>While it is possible to address these with dynamic dispatch, handling some of
+them might have far-reaching and surprising performance implications. We don&#x27;t
+want to compromise our goal for predictable performance.</p><p>We will allow the user to explicitly opt-in to using the dynamic strategy in
+specific cases. This could be just to control binary size in cases the user
+knows are not performance sensitive, or it could be to get the additional
+capability of operating on values with dynamic types. We may need to restrict
+this in various ways to maintain efficiency, like Rust does with object-safe
+traits.</p><p>We also anticipate that the user may want to force the compiler to use the
+static strategy in specific cases. This might be to keep runtime performance
+acceptable even when running a development or debug build.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="upgrade-path-from-templates">Upgrade path from templates<a class="hash-link" href="#upgrade-path-from-templates" title="Direct link to heading">​</a></h3><p>We want there to be a natural, incremental upgrade path from templated code to
+generic code.
+<a href="#relationship-to-templates">Assuming Carbon will support templates directly</a>,
+the first step of migrating C++ template code would be to first convert it to a
+Carbon template. The problem is then how to convert templates to generics within
+Carbon. This gives us these sub-goals:</p><ul><li>Users should be able to convert a single template parameter to be generic at
+a time. A hybrid function with both template and generic parameters has all
+the limitations of a template function: it can&#x27;t be completely definition
+checked, it can&#x27;t use the dynamic strategy, etc. Even so, there are still
+benefits from enforcing the function&#x27;s declared contract for those
+parameters that have been converted.</li><li>Converting from a template parameter to a generic parameter should be safe.
+It should either work or fail to compile, never silently change semantics.</li><li>We should minimize the effort to convert functions and types from templated
+to generic. Ideally it should just require specifying the type constraints,
+affecting just the signature of the function, not its body.</li><li><strong>Nice to have:</strong> It should be legal to call templated code from generic
+code when it would have the same semantics as if called from non-generic
+code, and an error otherwise. This is to allow more templated functions to
+be converted to generics, instead of requiring them to be converted
+specifically in bottom-up order.</li><li><strong>Nice to have:</strong> Provide a way to migrate from a template to a generic
+without immediately updating all of the types used with the template. For
+example, if the generic code requires types to implement a new interface,
+one possible solution would use the original template code to provide an
+implementation for that interface for any type that structurally has the
+methods used by the original template.</li></ul><p>If Carbon does not end up having direct support for templates, the transition
+will necessarily be less incremental.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="path-from-regular-functions">Path from regular functions<a class="hash-link" href="#path-from-regular-functions" title="Direct link to heading">​</a></h3><p>Replacing a regular, non-parameterized function with a generic function should
+not affect existing callers of the function. There may be some differences, such
+as when taking the address of the function, but ordinary calls should not see
+any difference. In particular, the return type of a generic function should
+match, without any type erasure or additional named members.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="coherence">Coherence<a class="hash-link" href="#coherence" title="Direct link to heading">​</a></h3><p>We want the generics system to have the
+<a href="/docs/design/generics/terminology/#coherence"><em>coherence</em> property</a>, so that the implementation of
+an interface for a type is well defined. Since a generic function only depends
+on interface implementations, they will always behave consistently on a given
+type, independent of context. For more on this, see
+<a href="https://github.com/Ixrec/rust-orphan-rules#what-is-coherence" target="_blank" rel="noopener noreferrer">this description of what coherence is and why Rust enforces it</a>.</p><p>Coherence greatly simplifies the language design, since it reduces the need for
+complicated rules to picking an implementation when there are many candidates.
+It also has a number of benefits for users:</p><ul><li>It removes a way packages can conflict with each other.</li><li>It makes the behavior of code more consistent and predictable.</li><li>It means there is no need to provide a disambiguation mechanism.
+Disambiguation is particularly problematic since the ambiguous call is often
+in generic code rather than code you control.</li><li>A consistent definition of a type is useful for instantiating a C++ or
+Carbon template on that type.</li></ul><p>The main downside of coherence is that there are some capabilities we would like
+for interfaces that are in tension with having an orphan rule limiting where
+implementations may be defined. For example, we would like to address
+<a href="https://eli.thegreenplace.net/2016/the-expression-problem-and-its-solutions#another-clojure-solution-using-protocols" target="_blank" rel="noopener noreferrer">the expression problem</a>.
+We can get some of the way there by allowing the implementation of an interface
+for a type to be defined with either the interface or the type. But some use
+cases remain:</p><ul><li>They should be some way of selecting between multiple implementations of an
+interface for a given type. For example, a <em>Song</em> might support multiple
+orderings, such as by title or by artist. These would be represented by
+having multiple implementations of a <em>Comparable</em> interface.</li><li>In order to allow libraries to be composed, there must be some way of saying
+a type implements an interface that is in another package that the authors
+of the type were unaware of. This is especially important since the library
+a type is defined in may not be able to see the interface definition without
+creating a dependency cycle or layering violation.</li></ul><p>We should have some mechanism for addressing these use cases. There are multiple
+approaches that could work:</p><ul><li>Interface implementations could be external to types and are passed in to
+generic functions separately.</li><li>There could be some way to create multiple types that are compatible with a
+given value that you can switch between using casts to select different
+interface implementations. This is the approach used by Rust
+(<a href="https://doc.rust-lang.org/book/ch19-03-advanced-traits.html#using-the-newtype-pattern-to-implement-external-traits-on-external-types" target="_blank" rel="noopener noreferrer">1</a>,
+<a href="https://github.com/Ixrec/rust-orphan-rules#user-content-why-are-the-orphan-rules-controversial" target="_blank" rel="noopener noreferrer">2</a>).</li></ul><p>Alternatives to coherence are discussed in <a href="/docs/design/generics/appendix-coherence/">an appendix</a>.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="no-novel-name-lookup">No novel name lookup<a class="hash-link" href="#no-novel-name-lookup" title="Direct link to heading">​</a></h3><p>We want to avoid adding rules for name lookup that are specific to generics.
+This is in contrast to Rust which has different lookup rules inside its traits.
+Instead, we should structure generics in a way that reuses existing name lookup
+facilities of the language.</p><p><strong>Nice to have:</strong> One application of this that would be nice to have is if the
+names of a type&#x27;s members were all determined by a type&#x27;s definition. So if <code>x</code>
+has type <code>T</code>, then if you write <code>x.y</code> you should be able to look up <code>y</code> in the
+definition of <code>T</code>. This might need to be somewhat indirect in some cases. For
+example, if <code>T</code> inherits from <code>U</code>, the name <code>y</code> might come from <code>U</code> and not be
+mentioned in the definition of <code>T</code> directly. We may have similar mechanisms
+where <code>T</code> gets methods that have default implementations in interfaces it
+implements, as long as the names of those interfaces are explicitly mentioned in
+the definition of <code>T</code>.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="learn-from-others">Learn from others<a class="hash-link" href="#learn-from-others" title="Direct link to heading">​</a></h3><p>Many languages have implemented generics systems, and we should learn from those
+experiences. We should copy what works and makes sense in the context of Carbon,
+and change decisions that led to undesirable compromises. We are taking the
+strongest guidance from Rust and Swift, which have similar goals and significant
+experience with the implementation and usability of generics. They both use
+nominal interfaces, were designed with generics from the start, and produce
+native code. Contrast with Go which uses structural interfaces, or Java which
+targets a virtual machine that predated its generics feature.</p><p>For example, Rust has found that supporting defaults for interface methods is a
+valuable feature. It is useful for <a href="#interop-and-evolution">evolution</a>,
+implementation reuse, and for bridging the gap between the minimal functionality
+a type wants to implement and the rich API that users want to consume
+(<a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html" target="_blank" rel="noopener noreferrer">example</a>).</p><p>We still have the flexibility to make simplifications that Rust cannot because
+they need to maintain compatibility. We could remove the concept of
+<code>fundamental</code> and explicit control over which methods may be specialized. These
+are complicated and
+<a href="http://aturon.github.io/tech/2017/02/06/specialization-and-coherence/" target="_blank" rel="noopener noreferrer">impose coherence restrictions</a>.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="interfaces-are-nominal">Interfaces are nominal<a class="hash-link" href="#interfaces-are-nominal" title="Direct link to heading">​</a></h3><p>Interfaces can either be <a href="/docs/design/generics/terminology/#structural-interfaces">structural</a>, as
+in Go, or <a href="/docs/design/generics/terminology/#nominal-interfaces">nominal</a>, as in Rust and Swift.
+Structural interfaces match any type that has the required methods, whereas
+nominal interfaces only match if there is an explicit declaration stating that
+the interface is implemented for that specific type. Carbon will support nominal
+interfaces, allowing them to designate <em>semantics</em> beyond the basic structure of
+the methods.</p><p>This means that interfaces implicitly specify the intended semantics and
+invariants of and between those functions. Unlike the function signatures, this
+contract is between the implementers and the consumers of interfaces and is not
+enforced by Carbon itself. For example, a <code>Draw</code> method would mean different
+things when it is part of a <code>GameResult</code> interface versus an <code>Image2D</code>
+interface, even if those methods happen to have the same signature.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="interop-and-evolution">Interop and evolution<a class="hash-link" href="#interop-and-evolution" title="Direct link to heading">​</a></h3><p><a href="/docs/project/goals/#software-and-language-evolution">Evolution is a high priority for Carbon</a>,
+and so will need mechanisms to support evolution when using generics. New
+additions to an interface might:</p><ul><li>need default implementations</li><li>be marked &quot;upcoming&quot; to allow for a period of transition</li><li>replace other APIs that need to be marked &quot;deprecated&quot;</li></ul><p>Experience with C++ concepts has shown that interfaces are
+<a href="https://www.youtube.com/watch?v=v_yzLe-wnfk" target="_blank" rel="noopener noreferrer">hard to evolve</a> without these
+kinds of supporting language mechanisms. Otherwise changes to interfaces need to
+made simultaneously with updates to types that implement the interface or
+functions that consume it.</p><p>Another way of supporting evolution is to allow one interface to be
+substitutable for another. For example, a feature that lets you use an
+implementation of <code>Interface1</code> for a type to automatically get an implementation
+of <code>Interface2</code>, as well as the other way around, would help transitioning
+between those two interfaces.</p><p>Evolution in particular means that the set of names in an interface can change,
+and so two interfaces that don&#x27;t start with name conflicts can develop them.</p><p>To handle name conflicts, interfaces should be separate, isolated namespaces. We
+should provide mechanisms to allow one type to implement two interfaces that
+accidentally use the same name for different things, and for functions to use
+interfaces with name conflicts together on a single type. Contrast this with
+Swift, where a type can only supply one associated type of a given name even
+when implementing multiple protocols. Similarly a function in Swift with a given
+name and signature can only have a single implementation for a type.</p><p>Note this is possible since <a href="#interfaces-are-nominal">interfaces are nominal</a>.
+The place where types specify that they implement an interface is also the
+vehicle for unambiguously designating which function implementation goes with
+what interface.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="bridge-for-c-customization-points">Bridge for C++ customization points<a class="hash-link" href="#bridge-for-c-customization-points" title="Direct link to heading">​</a></h3><p>There will need to be some bridge for C++ extension points that currently rely
+on open overloading or
+<a href="https://en.wikipedia.org/wiki/Argument-dependent_name_lookup" target="_blank" rel="noopener noreferrer">ADL</a>. For
+example, we need some way for C++
+<a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4381.html" target="_blank" rel="noopener noreferrer">customization points</a>
+like <code>swap</code> to work on Carbon types. We might define <code>CPlusPlus.ADL.swap</code> as a
+Carbon interface to be that bridge. Carbon types could implement that interface
+to work from C++, and Carbon functions could use that interface to invoke <code>swap</code>
+on C++ types.</p><p>Similarly, we will want some way to implement Carbon interfaces for C++ types.
+For example, we might have a template implementation of an <code>Addable</code> interface
+for any C++ type that implements <code>operator+</code>.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-we-are-not-doing">What we are not doing<a class="hash-link" href="#what-we-are-not-doing" title="Direct link to heading">​</a></h2><p>What are we <strong>not</strong> doing with generics, particularly things that some other
+languages do?</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="not-the-full-flexibility-of-templates">Not the full flexibility of templates<a class="hash-link" href="#not-the-full-flexibility-of-templates" title="Direct link to heading">​</a></h3><p>Generics don&#x27;t need to provide full flexibility of C++ templates:</p><ul><li>The current assumption is that
+<a href="#relationship-to-templates">Carbon templates</a> will cover those cases that
+don&#x27;t fit inside generics, such as code that relies on compile-time duck
+typing.</li><li>We won&#x27;t allow a specialization of some generic interface for some
+particular type to actually expose a <em>different</em> interface, with different
+methods or different types in method signatures. This would break modular
+type checking.</li><li><a href="https://en.wikipedia.org/wiki/Template_metaprogramming" target="_blank" rel="noopener noreferrer">Template metaprogramming</a>
+will not be supported by Carbon generics. We expect to address those use
+cases with metaprogramming or templates in Carbon.</li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="template-use-cases-that-are-out-of-scope">Template use cases that are out of scope<a class="hash-link" href="#template-use-cases-that-are-out-of-scope" title="Direct link to heading">​</a></h3><p>We will also not require Carbon generics to support
+<a href="https://en.wikipedia.org/wiki/Expression_templates" target="_blank" rel="noopener noreferrer">expression templates</a>,
+<a href="https://en.wikipedia.org/wiki/Variadic_function" target="_blank" rel="noopener noreferrer">variadics</a>, or
+<a href="https://en.wikipedia.org/wiki/Variadic_template" target="_blank" rel="noopener noreferrer">variadic templates</a>. Those are
+all out of scope. It would be fine for our generics system to support these
+features, but they won&#x27;t drive any accommodation in the generics design, at
+least until we have some resolution about templates in Carbon.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="generics-will-be-checked-when-defined">Generics will be checked when defined<a class="hash-link" href="#generics-will-be-checked-when-defined" title="Direct link to heading">​</a></h3><p>C++ compilers must defer full type checking of templates until they are
+instantiated by the user. Carbon will not defer type checking of generic
+definitions.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="specialization-strategy">Specialization strategy<a class="hash-link" href="#specialization-strategy" title="Direct link to heading">​</a></h3><p>We want all generic Carbon code to support <a href="#dispatch-control">static dispatch</a>.
+This means we won&#x27;t support unbounded type families. Unbounded type families are
+when recursion creates an infinite collection of types, such as in
+<a href="https://forums.swift.org/t/ergonomics-generic-types-conforming-in-more-than-one-way/34589/71" target="_blank" rel="noopener noreferrer">this example from Swift</a>
+or:</p><div class="language-carbon codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-carbon codeBlock_bY9V thin-scrollbar"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">fn Sort[T:! Comparable](list: List(T)) -&gt; List(T) {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  if (list.size() == 1) return list;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  var chunks: List(List(T)) = FormChunks(list, sqrt(list.size()));</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  chunks = chunks.ApplyToEach(Sort);</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  chunks = Sort(chunks);</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  return MergeSortedListOfSortedLists(chunks);</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg class="copyButtonIcon_y97N" viewBox="0 0 24 24"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg class="copyButtonSuccessIcon_LjdS" viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div><p>This, given an implementation of <code>Comparable</code> for any list with elements that
+are themselves <code>Comparable</code>, would recursively call itself to produce a set of
+types without bound. That is, calling <code>Sort</code> on a <code>List(Int)</code> would internally
+call <code>Sort</code> on a <code>List(List(Int))</code> and so on recursively without any static
+limit.</p><p>We won&#x27;t require all generic Carbon code to support dynamic dispatch, but we
+would like it to be an implementation option for the compiler in the majority of
+cases.</p><p>Lastly, runtime specialization is out of scope as an implementation strategy.
+That is, some language runtimes JIT a specialization when it is first needed,
+but it is not a goal for Carbon to support such an implementation strategy.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="references">References<a class="hash-link" href="#references" title="Direct link to heading">​</a></h2><ul><li><a href="https://github.com/carbon-language/carbon-lang/pull/24" target="_blank" rel="noopener noreferrer">#24: Generics goals</a></li><li><a href="https://github.com/carbon-language/carbon-lang/pull/950" target="_blank" rel="noopener noreferrer">#950: Generic details 6: remove facets</a></li></ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/carbon-language/carbon-lang/blob/trunk/docs/../docs/design/generics/goals.md" target="_blank" rel="noreferrer noopener" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages navigation"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/design/generics/details/"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Generics: Details</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/design/generics/overview/"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Generics: Overview</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#table-of-contents" class="table-of-contents__link toc-highlight">Table of contents</a></li><li><a href="#purpose-of-this-document" class="table-of-contents__link toc-highlight">Purpose of this document</a></li><li><a href="#background" class="table-of-contents__link toc-highlight">Background</a><ul><li><a href="#generic-parameters" class="table-of-contents__link toc-highlight">Generic parameters</a></li><li><a href="#interfaces" class="table-of-contents__link toc-highlight">Interfaces</a></li><li><a href="#relationship-to-templates" class="table-of-contents__link toc-highlight">Relationship to templates</a></li></ul></li><li><a href="#goals" class="table-of-contents__link toc-highlight">Goals</a><ul><li><a href="#use-cases" class="table-of-contents__link toc-highlight">Use cases</a></li><li><a href="#performance" class="table-of-contents__link toc-highlight">Performance</a></li><li><a href="#better-compiler-experience" class="table-of-contents__link toc-highlight">Better compiler experience</a></li><li><a href="#encapsulation" class="table-of-contents__link toc-highlight">Encapsulation</a></li><li><a href="#predictability" class="table-of-contents__link toc-highlight">Predictability</a></li><li><a href="#dispatch-control" class="table-of-contents__link toc-highlight">Dispatch control</a></li><li><a href="#upgrade-path-from-templates" class="table-of-contents__link toc-highlight">Upgrade path from templates</a></li><li><a href="#path-from-regular-functions" class="table-of-contents__link toc-highlight">Path from regular functions</a></li><li><a href="#coherence" class="table-of-contents__link toc-highlight">Coherence</a></li><li><a href="#no-novel-name-lookup" class="table-of-contents__link toc-highlight">No novel name lookup</a></li><li><a href="#learn-from-others" class="table-of-contents__link toc-highlight">Learn from others</a></li><li><a href="#interfaces-are-nominal" class="table-of-contents__link toc-highlight">Interfaces are nominal</a></li><li><a href="#interop-and-evolution" class="table-of-contents__link toc-highlight">Interop and evolution</a></li><li><a href="#bridge-for-c-customization-points" class="table-of-contents__link toc-highlight">Bridge for C++ customization points</a></li></ul></li><li><a href="#what-we-are-not-doing" class="table-of-contents__link toc-highlight">What we are not doing</a><ul><li><a href="#not-the-full-flexibility-of-templates" class="table-of-contents__link toc-highlight">Not the full flexibility of templates</a></li><li><a href="#template-use-cases-that-are-out-of-scope" class="table-of-contents__link toc-highlight">Template use cases that are out of scope</a></li><li><a href="#generics-will-be-checked-when-defined" class="table-of-contents__link toc-highlight">Generics will be checked when defined</a></li><li><a href="#specialization-strategy" class="table-of-contents__link toc-highlight">Specialization strategy</a></li></ul></li><li><a href="#references" class="table-of-contents__link toc-highlight">References</a></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/carbon-language/carbon-lang" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://discord.gg/ZjVdShJDAs" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://github.com/carbon-language/carbon-lang/blob/trunk/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer" class="footer__link-item">Code of Conduct<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div></div></footer></div>
+<script src="/assets/js/runtime~main.576a8e32.js"></script>
+<script src="/assets/js/main.52935302.js"></script>
+</body>
+</html>

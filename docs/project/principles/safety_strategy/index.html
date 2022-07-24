@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper docs-doc-page docs-version-current plugin-docs plugin-id-default docs-doc-id-docs/project/principles/safety_strategy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Docusaurus v2.0.0-rc.1">
+<title data-rh="true">Safety strategy | Carbon Language</title><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://carbon-language.github.io/docs/project/principles/safety_strategy/"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Safety strategy | Carbon Language"><meta data-rh="true" name="description" content="&lt;!--"><meta data-rh="true" property="og:description" content="&lt;!--"><link data-rh="true" rel="icon" href="/img/carbon-logo.png"><link data-rh="true" rel="canonical" href="https://carbon-language.github.io/docs/project/principles/safety_strategy/"><link data-rh="true" rel="alternate" href="https://carbon-language.github.io/docs/project/principles/safety_strategy/" hreflang="en"><link data-rh="true" rel="alternate" href="https://carbon-language.github.io/docs/project/principles/safety_strategy/" hreflang="x-default"><link rel="stylesheet" href="/assets/css/styles.868a9bd8.css">
+<link rel="preload" href="/assets/js/runtime~main.576a8e32.js" as="script">
+<link rel="preload" href="/assets/js/main.52935302.js" as="script">
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function e(e){document.documentElement.setAttribute("data-theme",e)}var t=function(){var e=null;try{e=localStorage.getItem("theme")}catch(e){}return e}();null!==t?e(t):window.matchMedia("(prefers-color-scheme: dark)").matches?e("dark"):(window.matchMedia("(prefers-color-scheme: light)").matches,e("light"))}()</script><div id="__docusaurus">
+<div role="region"><a href="#" class="skipToContent_fXgn">Skip to main content</a></div><nav class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Navigation bar toggle" class="navbar__toggle clean-btn" type="button" tabindex="0"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/carbon-logo.png" alt="Carbon Logo" class="themedImage_ToTc themedImage--light_HNdA"><img src="/img/carbon-logo.png" alt="Carbon Logo" class="themedImage_ToTc themedImage--dark_i4oU"></div><b class="navbar__title text--truncate">Carbon Language</b></a><a class="navbar__item navbar__link" href="/docs/design/">Design</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/project/">Project</a><a class="navbar__item navbar__link" href="/docs/guides/">Guides</a><a class="navbar__item navbar__link" href="/docs/spec/">Spec</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/carbon-language/carbon-lang" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="searchBox_ZlJk"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div class="main-wrapper mainWrapper_z2l0 docsWrapper_BCFX"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docPage__5DB"><aside class="theme-doc-sidebar-container docSidebarContainer_b6E3"><div class="sidebar_njMd"><nav class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/project/">Project</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/project/code_review/">Code review</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/project/contribution_tools/">Contribution tools</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/project/cpp_style_guide/">C++ style guide</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/project/design_style_guide/">Language design style guide</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/project/difficulties_improving_cpp/">Difficulties improving C++</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/project/evolution/">Evolution and governance</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/project/faq/">Project FAQ</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/project/goals/">Goals</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/project/groups/">Groups</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" aria-expanded="true" href="/docs/project/principles/">Principles</a><button aria-label="Toggle the collapsible sidebar category &#x27;Principles&#x27;" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/project/principles/error_handling/">Principle: Errors are values</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/project/principles/information_accumulation/">Principle: Information accumulation</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/project/principles/library_apis_only/">Principle: All APIs are library APIs</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/project/principles/low_context_sensitivity/">Principle: Low context-sensitivity</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/project/principles/one_way/">Principle: Prefer providing only one way to do a given thing</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/project/principles/safety_strategy/">Safety strategy</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/project/principles/static_open_extension/">Principle: One static open extension mechanism</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/project/principles/success_criteria/">Principle: Success criteria</a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/project/pull_request_workflow/">Trunk-based pull-request GitHub workflow</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/project/roadmap/">Roadmap</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/project/roadmap_process/">Roadmap process</a></li></ul></nav></div></aside><main class="docMainContainer_gTbr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_OVgt"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/docs/project/principles/"><span itemprop="name">Principles</span></a><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Safety strategy</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1>Safety strategy</h1><h2 class="anchor anchorWithStickyNavbar_LWe7" id="table-of-contents">Table of contents<a class="hash-link" href="#table-of-contents" title="Direct link to heading">​</a></h2><ul><li><a href="#background">Background</a><ul><li><a href="#what-safety-means-in-carbon">What &quot;safety&quot; means in Carbon</a></li><li><a href="#safety-guarantees-versus-hardening">Safety guarantees versus hardening</a></li></ul></li><li><a href="#philosophy">Philosophy</a></li><li><a href="#principles">Principles</a></li><li><a href="#details">Details</a><ul><li><a href="#incremental-work-when-safety-requires-work">Incremental work when safety requires work</a></li><li><a href="#using-build-modes-to-manage-safety-checks">Using build modes to manage safety checks</a><ul><li><a href="#debug">Debug</a></li><li><a href="#performance">Performance</a></li><li><a href="#hardened">Hardened</a></li></ul></li><li><a href="#managing-bugs-without-compile-time-safety">Managing bugs without compile-time safety</a></li></ul></li><li><a href="#caveats">Caveats</a><ul><li><a href="#probabilistic-techniques-likely-cannot-stop-attacks">Probabilistic techniques likely cannot stop attacks</a></li></ul></li><li><a href="#alternatives-considered">Alternatives considered</a><ul><li><a href="#guaranteed-memory-safety-programming-models">Guaranteed memory safety programming models</a><ul><li><a href="#guaranteed-compile-time-memory-safety-using-borrow-checking">Guaranteed compile-time memory safety using borrow checking</a></li><li><a href="#guaranteed-run-time-memory-safety-using-reference-counting">Guaranteed run-time memory safety using reference counting</a></li><li><a href="#guaranteed-run-time-memory-safety-using-garbage-collection">Guaranteed run-time memory safety using garbage collection</a></li></ul></li><li><a href="#build-mode-names">Build mode names</a></li><li><a href="#performance-versus-safety-in-the-hardened-build-mode">Performance versus safety in the hardened build mode</a></li><li><a href="#add-more-build-modes">Add more build modes</a></li></ul></li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="background">Background<a class="hash-link" href="#background" title="Direct link to heading">​</a></h2><p>Carbon&#x27;s goal is to provide
+<a href="/docs/project/goals/#practical-safety-and-testing-mechanisms">practical safety and testing mechanisms</a>.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="what-safety-means-in-carbon">What &quot;safety&quot; means in Carbon<a class="hash-link" href="#what-safety-means-in-carbon" title="Direct link to heading">​</a></h3><p>Safety is protection from software bugs, whether the protection is required by
+the language or merely an implementation option. Application-specific logic
+errors can be prevented by testing, but can lead to security vulnerabilities in
+production. Safety categories will be referred to using names based on the type
+of
+<a href="https://en.wikipedia.org/wiki/Vulnerability_(computing)#Software_vulnerabilities" target="_blank" rel="noopener noreferrer">security vulnerability</a>
+they protect against.</p><p>A key subset of safety categories Carbon should address are:</p><ul><li><p><a href="https://en.wikipedia.org/wiki/Memory_safety" target="_blank" rel="noopener noreferrer"><strong>Memory safety</strong></a> protects
+against invalid memory accesses. Carbon uses
+<a href="https://onlinelibrary.wiley.com/doi/full/10.1002/spe.2105" target="_blank" rel="noopener noreferrer">two main subcategories</a>
+for memory safety:</p><ul><li><p><em>Spatial</em> memory safety protects against accessing an address that&#x27;s out
+of bounds for the source. This includes array boundaries, as well as
+dereferencing invalid pointers such as uninitialized pointers, <code>NULL</code> in
+C++, or manufactured pointer addresses.</p></li><li><p><em>Temporal</em> memory safety protects against accessing an address that has
+been deallocated. This includes use-after-free for heap and
+use-after-return for stack addresses.</p></li></ul></li><li><p><a href="https://en.wikipedia.org/wiki/Type_safety" target="_blank" rel="noopener noreferrer"><strong>Type safety</strong></a> protects
+against accessing valid memory with an incorrect type, also known as &quot;type
+confusion&quot;.</p></li><li><p><a href="https://en.wikipedia.org/wiki/Race_condition#Data_race" target="_blank" rel="noopener noreferrer"><strong>Data race safety</strong></a>
+protects against racing memory access: when a thread accesses (read or
+write) a memory location concurrently with a different writing thread and
+without synchronizing.</p></li></ul><h3 class="anchor anchorWithStickyNavbar_LWe7" id="safety-guarantees-versus-hardening">Safety guarantees versus hardening<a class="hash-link" href="#safety-guarantees-versus-hardening" title="Direct link to heading">​</a></h3><p>In providing safety, the underlying goal is to prevent attacks from turning a
+<em>logic error</em> into a <em>security vulnerability</em>. The three ways of doing this can
+be thought of in terms of how they prevent attacks:</p><ul><li><p><strong>Safety guarantees</strong> prevent bugs. They offer a strong requirement that a
+particular security vulnerability cannot exist. Compile-time safety checks
+are always a safety guarantee, but safety guarantees may also be done at
+runtime. For example:</p><ul><li><p>At compile-time, range-based for loops offer a spatial safety guarantee
+that out-of-bounds issues cannot exist in the absence of concurrent
+modification of the sequence.</p></li><li><p>At runtime, garbage collected languages offer a temporal safety
+guarantee because objects cannot be freed while they&#x27;re still
+accessible.</p></li></ul></li><li><p><strong>Error detection</strong> checks for common logic errors at runtime. For example:</p><ul><li><p>An array lookup function might offer spatial memory error detection by
+verifying that the passed index is in-bounds.</p></li><li><p>A program can implement reference counting to detect a temporal memory
+error by checking whether any references remain when memory is freed.</p></li></ul></li><li><p><strong>Safety hardening</strong> mitigates bugs, typically by minimizing the feasibility
+of an attack. For example:</p><ul><li><p><a href="https://en.wikipedia.org/wiki/Control-flow_integrity" target="_blank" rel="noopener noreferrer">Control Flow Integrity (CFI)</a>
+monitors for behavior which can subvert the program&#x27;s control flow. In
+<a href="http://clang.llvm.org/docs/ControlFlowIntegrity.html" target="_blank" rel="noopener noreferrer">Clang</a>, it is
+optimized for use in release builds. Typically CFI analysis will only
+detect a subset of attacks because it can&#x27;t track each possible code
+path separately. It should still reduce the feasibility of both spatial
+memory, temporal memory, and type attacks.</p></li><li><p><a href="https://llvm.org/devmtg/2018-10/slides/Serebryany-Stepanov-Tsyrklevich-Memory-Tagging-Slides-LLVM-2018.pdf" target="_blank" rel="noopener noreferrer">Memory tagging</a>
+makes each attempt at an invalid read or write operation have a high
+probability of trapping, while still not detecting the underlying bug in
+every case. Realistic attacks require many such operations, so memory
+tagging may stop attacks in some environments. Alternatively, the trap
+might be asynchronous, leaving only a tiny window of time prior to the
+attack being detected and program terminated. These are probabilistic
+hardening and reduces the feasibility of both spatial and temporal
+memory attacks.</p></li></ul></li></ul><p>Under both error detection and safety hardening, even if a safety is protected,
+the underlying bugs will still exist and will need to be fixed. For example,
+program termination could be used for a denial-of-service attack.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="philosophy">Philosophy<a class="hash-link" href="#philosophy" title="Direct link to heading">​</a></h2><p>Carbon&#x27;s
+<a href="/docs/project/goals/#practical-safety-and-testing-mechanisms">practical safety and testing mechanisms</a>
+will emphasize guaranteed safety where feasible without creating barriers to
+Carbon&#x27;s <a href="/docs/project/goals/">other goals</a>, particularly performance and
+interoperability. This limits Carbon&#x27;s options for guaranteed safety, and as a
+result there will be more reliance upon error detection and safety hardening.
+The language&#x27;s design should incentivize safe programming, although it will not
+be required.</p><p>When writing code, Carbon developers should expect to receive safety without
+needing to add safety annotations. Carbon will have optional safety annotations
+for purposes such as optimizing safety checks or providing information that
+improves coverage of safety checks.</p><p>Carbon will favor compile-time safety checks because catching issues early will
+make applications more reliable. Runtime checks, either error detection or
+safety hardening, will be enabled where safety cannot be proven at compile-time.</p><p>There will be three high-level use cases or directions that Carbon addresses
+through different build modes that prioritize safety checks differently:</p><ul><li>A <a href="#debug">debug</a> oriented build mode that prioritizes detecting bugs and
+reporting errors helpfully.</li><li>A <a href="#performance">performance</a> oriented build mode that skips any dynamic
+safety checks to reduce overhead.</li><li>A <a href="#hardened">hardened</a> oriented build mode that prioritizes ensuring
+sufficient safety to prevent security vulnerabilities, although it may not
+allow detecting all of the bugs.</li></ul><p>These high level build modes may be tuned, either to select specific nuanced
+approach for achieving the high level goal, or to configure orthogonal
+constraints such as whether to prioritize binary size or execution speed.
+However, there is a strong desire to avoid requiring more fundamental build
+modes to achieve the necessary coverage of detecting bugs and shipping software.
+These build modes are also not expected to be interchangeable or compatible with
+each other within a single executable -- they must be a global selection.</p><p>Although expensive safety checks could be provided through additional build
+modes, Carbon will favor safety checks that can be combined into these three
+build modes rather than adding more.</p><p>Over time, safety should <a href="/docs/project/goals/#software-and-language-evolution">evolve</a>
+using a hybrid compile-time and runtime safety approach to eventually provide a
+similar level of safety to a language that puts more emphasis on guaranteed
+safety, such as
+<a href="#guaranteed-compile-time-memory-safety-using-borrow-checking">Rust</a>. However,
+while Carbon may <em>encourage</em> developers to modify code in support of more
+efficient safety checks, it will remain important to improve the safety of code
+for developers who cannot invest into safety-specific code modifications.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="principles">Principles<a class="hash-link" href="#principles" title="Direct link to heading">​</a></h2><ul><li><p>Safety must be
+<a href="/docs/project/goals/#code-that-is-easy-to-read-understand-and-write">easy to ramp-up with</a>,
+even if it means new developers don&#x27;t receive the full safety that Carbon
+can offer.</p><ul><li><p>Developers should benefit from Carbon&#x27;s safety without needing to learn
+and apply Carbon-specific design patterns. Some safety should be enabled
+by default, without safety-specific work, although some safety will
+require work to opt in. Developers concerned with performance should
+only need to disable safety in rare edge-cases.</p></li><li><p>Where there is a choice between safety approaches, the safe option
+should be incentivized by making it equally easy or easier to use. If
+there is a default, it should be the safe option. It should be
+identifiable when the unsafe option is used. Incentives will prioritize,
+in order:</p><ol><li>Guaranteed safety.</li><li>Error detection.</li><li>Safety hardening.</li><li>Unsafe and unmitigated code.</li></ol></li><li><p>Language design choices should favor more efficient implementations of
+safety checks. They should also allow favor automation of testing and
+fuzzing.</p></li></ul></li><li><p>Safety in Carbon must work with
+<a href="/docs/project/goals/#interoperability-with-and-migration-from-existing-c-code">interoperable or migrated C++ code</a>,
+so that C++ developers can readily take advantage of Carbon&#x27;s improvements.</p><ul><li><p>Safety mechanisms will ideally be designed to apply to automatically
+migrated C++ code. Providing immediate safety improvements to Carbon
+adopters will help motivate adoption.</p></li><li><p>In the other direction, safety mechanisms must not force manual
+rewriting of C++ code in order to migrate, either by creating design
+incompatibilities or performance degradations. Automated migration of
+C++ code to Carbon must work for most developers, even if it forces
+Carbon&#x27;s safety design to take a different approach.</p></li><li><p>Carbon&#x27;s safety should degrade gracefully when Carbon code calls C++
+code, although this may require use of the Carbon toolchain to compile
+the C++ code. Applications should be expected to use interoperability.
+Although some safety features will be Carbon-specific, safety should not
+stop at the language boundary.</p></li></ul></li><li><p>The rules for determining whether code will pass compile-time safety
+checking should be articulable, documented, and easy to understand.</p><ul><li>Compile-time safety checks should not change significantly across
+different build modes. The purpose of the build modes is to determine
+code generation.</li></ul></li><li><p>Each build mode will prioritize performance and safety differently:</p><ul><li><p>The <a href="#debug">debug build mode</a> will produce development-focused binaries
+that prioritize fast iteration on code with safety checks that assist in
+identification and debugging of errors.</p></li><li><p>The <a href="#performance">performance build mode</a> will produce release-focused
+binaries that prioritize performance over safety.</p></li><li><p>The <a href="#hardened">hardened build mode</a> will produce release-focused
+binaries that prioritize safety that is resistant to attacks at the cost
+of performance.</p></li></ul></li><li><p>Safety checks should try to be identical across build modes.</p><ul><li>There will be differences, typically due to performance overhead and
+detection rate trade-offs of safety check algorithms.</li></ul></li><li><p>The number of build modes will be limited, and should be expected to remain
+at the named three.</p><ul><li><p>Most developers will use two build modes in their work: debug for
+development, and either performance or hardened for releases.</p></li><li><p>It&#x27;s important to focus on checks that are cheap enough to run as part
+of normal development. Users are not expected to want to run additional
+development build modes for additional sanitizers.</p></li><li><p>Limiting the number of build modes simplifies support for both Carbon
+maintainers, who can focus on a more limited set of configurations, and
+Carbon developers, who can easily choose which is better for their
+use-case.</p></li></ul></li><li><p>Each distinct safety-related build mode (debug, performance, and hardened)
+cannot be combined with others in the same binary.</p><ul><li>Cross-binary interfaces will exist in Carbon, and will need to be used
+by developers interested in combining libraries built under different
+build modes.</li></ul></li><li><p>Although runtime safety checks should prevent logic errors from turning into
+security vulnerabilities, the underlying logic errors will still be bugs.
+For example, some safety checks would result in application termination;
+this prevents execution of unexpected code and still needs to be fixed.</p></li><li><p>Developers need a strong testing methodology to engineer correct software.
+Carbon will encourage testing and then leverage it with the checking build
+modes to find and fix bugs and vulnerabilities.</p></li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="details">Details<a class="hash-link" href="#details" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="incremental-work-when-safety-requires-work">Incremental work when safety requires work<a class="hash-link" href="#incremental-work-when-safety-requires-work" title="Direct link to heading">​</a></h3><p>Carbon is prioritizing usability of the language, particularly minimizing
+retraining of C++ developers and easing migration of C++ codebases, over the
+kind of provable safety that some other languages pursue, particularly Rust.</p><p>A key motivation of Carbon is to move C++ developers to a better, safer
+language. However, if Carbon requires manually rewriting or redesigning C++ code
+in order to maintain performance, it creates additional pressure on C++
+developers to learn and spend time on safety. Safety will often not be the top
+priority for developers; as a result, Carbon must be thoughtful about how and
+when it forces developers to think about safety.</p><p>Relying on multiple build modes to provide safety should fit into normal
+development workflows. Carbon can also have features to enable additional
+safety, so long as developers can start using Carbon in their applications
+<em>without</em> learning new paradigms.</p><p>Where possible, safety checks shouldn&#x27;t require work on the part of Carbon
+developers. A safety check that requires no code edits or can be handled by
+automated migration may be opt-out, as there is negligible cost to developers.
+One which requires local code changes should be opt-in because costs will scale
+with codebase size. Safety check approaches which would require substantial
+redesign by developers will be disfavored based on adoption cost, even if the
+alternative is a less-comprehensive approach.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="using-build-modes-to-manage-safety-checks">Using build modes to manage safety checks<a class="hash-link" href="#using-build-modes-to-manage-safety-checks" title="Direct link to heading">​</a></h3><p>Carbon will likely start in a state where most safety checks are done at
+runtime. However, runtime detection of safety violations remains expensive. In
+order to make as many safety checks as possible available to developers, Carbon
+will adopt a strategy based on three build modes that target key use-cases.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="debug">Debug<a class="hash-link" href="#debug" title="Direct link to heading">​</a></h4><p>The debug build mode targets developers who are iterating on code and running
+tests. It will emphasize detection and debuggability, especially for safety
+issues.</p><p>It needs to perform well enough to be run frequently by developers, but will
+make performance sacrifices to catch more safety issues. This mode should have
+runtime checks for the most common safety issues, but it can make trade-offs
+that improve performance in exchange for less frequent, but still reliable,
+detection. Developers should do most of their testing in this build mode.</p><p>The debug build mode will place a premium on the debuggability of safety
+violations. Where safety checks rely on hardening instead of guaranteed safety,
+violations should be detected with a high probability per single occurrence of
+the bug. Detected bugs will be accompanied by a detailed diagnostic report to
+ease classification and root cause identification.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="performance">Performance<a class="hash-link" href="#performance" title="Direct link to heading">​</a></h4><p>The performance build mode targets the typical application that wants high
+performance from Carbon code, where performance considers processing time,
+memory, and disk space. Trade-offs will be made that maximize the performance.</p><p>Only safety techniques that don&#x27;t measurably impact application hot path
+performance will be enabled by default. This is a very high bar, but is crucial
+for meeting Carbon&#x27;s performance goals, as well as allowing migration of
+existing C++ systems which may not have been designed with Carbon&#x27;s safety
+semantics in mind.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="hardened">Hardened<a class="hash-link" href="#hardened" title="Direct link to heading">​</a></h4><p>The hardened build mode targets applications where developers want strong safety
+against attacks in exchange for worse performance. It will work to prevent
+attacks in ways that
+<a href="#probabilistic-techniques-likely-cannot-stop-attacks">attackers cannot work around</a>,
+even if it means using techniques that create significant performance costs.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="managing-bugs-without-compile-time-safety">Managing bugs without compile-time safety<a class="hash-link" href="#managing-bugs-without-compile-time-safety" title="Direct link to heading">​</a></h3><p>Carbon&#x27;s reliance on runtime checks will allow developers to manage their
+security risk. Developers will still need to reliably find and fix the
+inevitable bugs, including both safety violations and regular business logic
+bugs. The cornerstone of managing bugs will be strong testing methodologies,
+with built-in support from Carbon.</p><p>Strong testing is more than good test coverage. It means a combination of:</p><ul><li><p>Ensuring unsafe or risky operations and interfaces can easily be recognized
+by developers.</p></li><li><p>Using static analysis tools to detect common bugs, and ensuring they&#x27;re
+integrated into build and code review workflows. These could be viewed as
+static testing of code.</p></li><li><p>Writing good test coverage, including unit, integration, and system tests.</p></li><li><p>Implementing coverage-directed fuzz testing to discover bugs outside of
+manually authored test coverage, especially for interfaces handling
+untrusted data. Fuzz testing is a robust way to catch bugs when APIs may be
+used in ways developers don&#x27;t consider.</p></li><li><p>Running continuous integration, including automatic and continuous running
+of these tests. The checked development build mode should be validated, as
+well as any additional build modes necessary to cover different forms of
+behavior checking.</p></li><li><p>Easing automated testing and fuzzing through language features. For example,
+if the language encourages value types and pure functions of some sort, they
+can be automatically fuzzed.</p></li></ul><p>These practices are necessary for reliable, large-scale software engineering.
+Maintaining correctness of business logic over time requires continuous and
+thorough testing. Without it, such software systems cannot be changed and
+evolved over time reliably. Carbon will re-use these practices in conjunction
+with checking build modes to mitigate the limitations of Carbon&#x27;s safety
+guarantees without imposing overhead on production systems.</p><p>When a developer chooses to use Carbon, adhering to this kind of testing
+methodology is essential for maintaining safety. As a consequence, Carbon&#x27;s
+ecosystem, including the language, tools, and libraries, will need to directly
+work to remove barriers and encourage the development of these methodologies.</p><p>The reliance on testing may make Carbon a poor choice in some environments; in
+environments where such testing rigor is infeasible, a language with a greater
+degree of static checking may be better suited.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="caveats">Caveats<a class="hash-link" href="#caveats" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="probabilistic-techniques-likely-cannot-stop-attacks">Probabilistic techniques likely cannot stop attacks<a class="hash-link" href="#probabilistic-techniques-likely-cannot-stop-attacks" title="Direct link to heading">​</a></h3><p>It&#x27;s expected that probabilistic techniques that can be applied at the language
+level are attackable through a variety of techniques:</p><ul><li>The attacker might be able to attack repeatedly until it gets through.</li><li>The attacker may be able to determine when the attack would be detected and
+only run the attack when it would not be.</li><li>The attacker might be able control the test condition to make detection much
+less likely or avoid detection completely. For example, if detection is
+based on the last 4 bits of a memory address, an attacker may be able to
+generate memory allocations, viewing the address and only attacking when
+there&#x27;s a collision.</li></ul><p>Hardware vulnerabilities may make these attacks easier than they might otherwise
+appear. Future hardware vulnerabilities are difficult to predict.</p><p>Note this statement focuses on what can be applied to the language level. Using
+a secure hash algorithm, such as SHA256, may be used to offer probabilistic
+defense in other situations. However, the overhead of a secure hash algorithm&#x27;s
+calculation is significant in the context of most things that Carbon may do at
+the language level.</p><p>Combining these issues, although it may seem like a probabilistic safety check
+could be proven to reliably detect attackers, it&#x27;s likely infeasible to do so.
+For the various build modes, this means:</p><ul><li>The debug build mode will not typically be accessible to attackers, so where
+a probabilistic technique provides a better developer experience, it will be
+preferred.</li><li>The performance build mode will often avoid safety checks in order to reach
+peak performance. As a consequence, even the weak protection of a
+probabilistic safety check may be used in order to provide <em>some</em>
+protection.</li><li>The hardened build mode will prefer non-probabilistic techniques that
+<em>cannot</em> be attacked.</li></ul><h2 class="anchor anchorWithStickyNavbar_LWe7" id="alternatives-considered">Alternatives considered<a class="hash-link" href="#alternatives-considered" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_LWe7" id="guaranteed-memory-safety-programming-models">Guaranteed memory safety programming models<a class="hash-link" href="#guaranteed-memory-safety-programming-models" title="Direct link to heading">​</a></h3><p>Multiple approaches that would offer guaranteed memory safety have been
+considered, mainly based on other languages which offer related approaches.
+Carbon will likely rely more on error detection and hardening because of what
+the models would mean for Carbon&#x27;s performance and C++ migration language goals.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="guaranteed-compile-time-memory-safety-using-borrow-checking">Guaranteed compile-time memory safety using borrow checking<a class="hash-link" href="#guaranteed-compile-time-memory-safety-using-borrow-checking" title="Direct link to heading">​</a></h4><p>Rust offers a good example of an approach for compile-time safety based on
+borrow checking, which provides guaranteed safety. For code which can&#x27;t
+implement borrow checking, runtime safety using reference counting is available
+and provides reliable error detection. This approach still allows for
+<a href="https://doc.rust-lang.org/rust-by-example/unsafe.html" target="_blank" rel="noopener noreferrer"><code>unsafe</code> blocks</a>, as
+well as types that offer runtime safety while wrapping <code>unsafe</code> interfaces.</p><p>Carbon could use a similar approach for guaranteed safety by default.</p><p>Advantages:</p><ul><li>Guaranteed safety, including against data races, is provided for the
+binaries.<ul><li>The emphasis on compile-time safety limits the scope of the runtime
+memory safety costs.</li><li>With Rust, there is early evidence that there&#x27;s a significant impact in
+reducing bugs generally.</li></ul></li><li>Imitating Rust&#x27;s techniques would allow building on the huge work of the
+Rust community, reducing the risks of implementing similar in Carbon.</li><li>Careful use of narrow <code>unsafe</code> escape hatches can be effectively
+encapsulated behind otherwise safe APIs.</li></ul><p>Disadvantages:</p><ul><li>Rust&#x27;s approach to compile-time safety requires use of
+<a href="https://github.com/rust-unofficial/patterns" target="_blank" rel="noopener noreferrer">design patterns and idioms</a>
+that are substantially different from C++.<ul><li>Conversion of C++ code to Rust results in either rewrites of code, or
+use of runtime safety checks that impair performance.</li><li>Requires fully modeling lifetime and exclusivity in the type system.</li><li>Data structures must be redesigned to avoid sharing mutable state.</li><li>Increases complexity of node and pointer based data structures, such as
+linked lists.</li></ul></li><li>Imitating Rust&#x27;s techniques may prove insufficient for achieving Carbon&#x27;s
+<a href="/docs/project/goals/#fast-and-scalable-development">compiler performance goals</a>.
+Rust compilation performance suggests its borrow checking performance is
+slow, although it&#x27;s difficult to determine how significant this is or
+whether it could be improved.<ul><li>The Rust compiler
+<a href="https://pingcap.com/blog/rust-compilation-model-calamity" target="_blank" rel="noopener noreferrer">is slow</a>,
+although
+<a href="https://blog.mozilla.org/nnethercote/2020/09/08/how-to-speed-up-the-rust-compiler-one-last-time/" target="_blank" rel="noopener noreferrer">much has been done to improve it</a>.</li><li>Details of type checking, particularly requiring parsing of function
+bodies to type check signatures, as well as wide use of
+<a href="https://doc.rust-lang.org/book/ch10-01-syntax.html" target="_blank" rel="noopener noreferrer">monomorphization</a>
+are likely significant contributors to Rust compilation performance.</li><li>LLVM codegen is also a significant cost for Rust compilation
+performance.</li><li>With
+<a href="https://fuchsia.dev/fuchsia-src/development/languages/rust" target="_blank" rel="noopener noreferrer">Fuchsia</a> as
+an example, in December 2020, borrow checking and type checking combined
+account for around 10% of Rust compile CPU time, or 25% of end-to-end
+compile time. The current cost of borrow checking is obscured both
+because of the combination with type checking, and because Fuchsia
+disables some compiler parallelization due to build system
+incompatibility.</li></ul></li><li>The complexity of using Rust&#x27;s compile-time safety may incentivize
+unnecessary runtime checking of safety properties. For example, using
+<a href="https://doc.rust-lang.org/std/cell/struct.RefCell.html" target="_blank" rel="noopener noreferrer"><code>RefCell</code></a> or
+<a href="https://doc.rust-lang.org/std/rc/struct.Rc.html" target="_blank" rel="noopener noreferrer"><code>Rc</code></a> to avoid changing
+designs to fit compile-time safety models.</li><li>Some of the most essential safety tools that ease the ergonomic burden of
+the Rust-style lifetime model (<code>Rc</code>) introduce <em>semantic</em> differences that
+cannot then be eliminated in a context where performance is the dominant
+priority.</li></ul><p>It&#x27;s possible to modify the Rust model several ways in order to reduce the
+burden on C++ developers:</p><ul><li>Don&#x27;t offer safety guarantees for data races, eliminating <code>RefCell</code>.<ul><li>This would likely not avoid the need for <code>Rc</code> or <code>Arc</code>, and wouldn&#x27;t
+substantially reduce the complexity.</li></ul></li><li>Require manual destruction of <code>Rc</code>, allowing safety checks to be disabled in
+the performance build mode to eliminate overhead.<ul><li>This still requires redesigning C++ code to take advantage of <code>Rc</code>.</li><li>The possibility of incorrect manual destruction means that the safety
+issue is being turned into a bug, which means it is hardening and no
+longer a safety guarantee.</li><li>Carbon can provide equivalent hardening through techniques such as
+<a href="https://www.cl.cam.ac.uk/~tmj32/papers/docs/ainsworth20-sp.pdf" target="_blank" rel="noopener noreferrer">MarkUs</a>,
+which does not require redesigning C++ code.</li></ul></li></ul><p>Overall, Carbon is making a compromise around safety in order to give a path for
+C++ to evolve. C++ developers must be comfortable migrating their codebases, and
+able to do so in a largely automated manner. In order to achieve automated
+migration, Carbon cannot require fundamental redesigns of migrated C++ code.
+While a migration tool could in theory mark all migrated code as <code>unsafe</code>,
+Carbon should use a safety strategy that degrades gracefully and offers
+improvements for C++ code, whether migrated or not.</p><p>That does not mean Carbon will never adopt guaranteed safety by default, only
+that performance and migration of C++ code takes priority, and any design will
+need to be considered in the context of other goals. It should still be possible
+to adopt guaranteed safety later, although it will require identifying a
+migration path.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="guaranteed-run-time-memory-safety-using-reference-counting">Guaranteed run-time memory safety using reference counting<a class="hash-link" href="#guaranteed-run-time-memory-safety-using-reference-counting" title="Direct link to heading">​</a></h4><p><a href="https://en.wikipedia.org/wiki/Reference_counting" target="_blank" rel="noopener noreferrer">Reference counting</a> is a
+common memory safety model, with Swift as a popular example.</p><p>Advantages:</p><ul><li>Simple model for safety, particularly as compared with Rust.</li><li>Safe for all of the most common and important classes of memory safety bugs.</li></ul><p>Disadvantages:</p><ul><li>Safety based on reference counting introduces significant performance costs,
+and tools for controlling these costs are difficult.<ul><li>Safety based on garbage collection has less direct performance overhead,
+but has a greater unpredictability of performance.</li></ul></li><li>Significant design differences versus C++ still result, as the distinction
+between value types and &quot;class types&quot; becomes extremely important.<ul><li>Class types are held by a reference counted pointer and are thus
+lifetime safe.</li></ul></li></ul><p>In order to mitigate the performance overhead, Swift does have a proposal to add
+an option for unique ownership, although the specifics are not designed yet. The
+unique ownership approach is expected to require unowned and unsafe access, so
+it would not considered to improve the safety trade-offs.</p><p>Swift was designated by Apple as the replacement for Objective-C. The safety
+versus performance trade-offs that it makes fit Apple&#x27;s priorities. Carbon&#x27;s
+performance goals should lead to different trade-off decisions with a higher
+priority on peak performance, which effectively rules out broad use of reference
+counting.</p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="guaranteed-run-time-memory-safety-using-garbage-collection">Guaranteed run-time memory safety using garbage collection<a class="hash-link" href="#guaranteed-run-time-memory-safety-using-garbage-collection" title="Direct link to heading">​</a></h4><p><a href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)" target="_blank" rel="noopener noreferrer">Garbage collection</a>
+is a common memory safety model, with Java as a popular example.</p><p>Advantages:</p><ul><li>This approach is among the most robust and well studied models, with decades
+of practical usage and analysis for security properties.</li><li>Extremely suitable for efficient implementation on top of a virtual machine,
+such as the JVM.</li></ul><p>Disadvantages:</p><ul><li>Extremely high complexity to fully understand the implications of complex
+cases like data races.</li><li>Performance overhead is significant in terms of what Carbon would like to
+consider.<ul><li>Garbage collection remains a difficult performance problem, even for the
+JVM and its extensive optimizations.</li><li>The complexity of the implementation makes it difficult to <em>predict</em>
+performance; for example, Java applications experience latency spikes
+when garbage collection runs.</li></ul></li></ul><p>Java is a good choice for many applications, but Carbon is working to focus on a
+set of performance priorities that would be difficult to achieve with a garbage
+collector.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="build-mode-names">Build mode names<a class="hash-link" href="#build-mode-names" title="Direct link to heading">​</a></h3><p>The build mode concepts are difficult to name. Other names that were evaluated,
+and are ultimately similar, are:</p><ul><li><p>&quot;Debug&quot; is a common term for the intended use of this build mode. Also,
+tooling including Visual Studio frequently uses the debug term for
+describing similar.</p><ul><li>&quot;Development&quot; was also considered, but this term is less specific and
+would be better for describing all non-release builds together. For
+example, a &quot;fast build&quot; mode might be added that disables safety checks
+to improve iteration time, like might be controlled by way of C++&#x27;s
+<code>NDEBUG</code> option.</li></ul></li><li><p>&quot;Performance&quot; aligns with the phrasing of the language performance goal.</p><ul><li><p>&quot;Optimized&quot; implies that other modes would not be fully optimized, but
+hardened should be optimized.</p></li><li><p>&quot;Fast&quot; would suggest that speed is the only aspect of performance being
+optimizing for, but &quot;performance&quot; also optimizes for memory usage and
+binary size.</p></li></ul></li><li><p>&quot;Hardened&quot; is the choice for succinctly describing the additional safety
+measures that will be taken, and is a well-known term in the safety space.
+It could be incorrectly inferred that &quot;performance&quot; has no hardening, but
+the preference is to clearly indicate the priority of the &quot;hardened&quot; build
+mode.</p><ul><li><p>&quot;Safe&quot; implies something closer to guaranteed safety. However, safety
+bugs should be expected to result in program termination, which can
+still be used in other attacks, such as Denial-of-Service.</p></li><li><p>&quot;Mitigated&quot; is an overloaded term, and it may not be succinctly clear
+that it&#x27;s about security mitigations.</p></li></ul></li><li><p>Some terms which were considered and don&#x27;t fit well into the above groups
+are:</p><ul><li>&quot;Release&quot; is avoided because both &quot;performance&quot; and &quot;hardened&quot; could be
+considered to be &quot;release&quot; build modes.</li></ul></li></ul><p>The names &quot;performance&quot; and &quot;hardened&quot; may lead to misinterpretations, with some
+developers who should use &quot;hardened&quot; using &quot;performance&quot; because they are
+worried about giving up too much performance, and the other way around. The
+terms try to balance the utility of well-known terminology with the succinctness
+of a short phrase for build modes, and that limits the expressivity. Some
+confusion is expected, and documentation as well as real-world experience (for
+example, a developer who cares about latency benchmarking both builds) should be
+expected to help mitigate mix-ups.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="performance-versus-safety-in-the-hardened-build-mode">Performance versus safety in the hardened build mode<a class="hash-link" href="#performance-versus-safety-in-the-hardened-build-mode" title="Direct link to heading">​</a></h3><p>The performance cost of safety techniques are expected to be non-linear with
+respect to detection rates. For example, a particular vulnerability such as heap
+use-after-free may be detectable with 99% accuracy at 20% performance cost, but
+100% accuracy at 50% performance cost. At present, build modes should be
+expected to evaluate such a scenario as:</p><ul><li>The debug build mode would choose the 99% accurate approach.<ul><li>Detecting safety issues is valuable for debugging.</li><li>The probabilistic detection rate won&#x27;t meaningfully affect accuracy of
+tests.</li><li>The lower performance cost improves developer velocity.</li></ul></li><li>The performance build mode would decline detection.<ul><li>Safety checks with a measurable performance cost should be declined.</li></ul></li><li>The hardened build mode would choose the 100% accurate approach.<ul><li>Safety must be non-probabilistic in order to reliably prevent attacks.</li><li>Significant performance hits are acceptable.</li><li>This means the hardened build mode may be slower than the debug build
+mode.</li></ul></li></ul><p>In order to achieve better performance, the hardened build mode could make
+trade-offs closer to the debug build mode. Rather than relying on
+non-probabilistic techniques, it could instead offer a probability-based chance
+of detecting a given attack.</p><p>Advantages:</p><ul><li>Probabilistic safety should come at lower performance cost (including CPU,
+memory, and disk space).<ul><li>This will sometimes be significant, and as a result of multiple checks,
+could be the difference between the hardened build mode being 50% slower
+than the performance build mode and being 200% slower.</li></ul></li></ul><p>Disadvantages:</p><ul><li><a href="#probabilistic-techniques-likely-cannot-stop-attacks">Probabilistic techniques likely cannot stop attacks</a>.<ul><li>Attackers may be able to repeat attacks until they succeed.</li><li>The variables upon which the probability is based, such as memory
+addresses, may be manipulable by the attacker. As a consequence, a
+determined attacker may be able to manipulate probabilities and not even
+be detected.</li></ul></li></ul><p>Although performance is
+<a href="/docs/project/goals/#language-goals-and-priorities">Carbon&#x27;s top goal</a>, the hardened
+build mode exists to satisfy developers and environments that value safety more
+than performance. The hardened build mode will rely on non-probabilistic safety
+at significant performance cost because other approaches will be insufficient to
+guard against determined attackers.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="add-more-build-modes">Add more build modes<a class="hash-link" href="#add-more-build-modes" title="Direct link to heading">​</a></h3><p>More build modes could be added to this principle, or the principle could
+encourage the idea that specific designs may add more.</p><p>To explain why three build modes:</p><ul><li><p>The concept of debug and release (sometimes called opt) are common. For
+example, in
+<a href="https://docs.microsoft.com/en-us/visualstudio/debugger/how-to-set-debug-and-release-configurations?view=vs-2019" target="_blank" rel="noopener noreferrer">Visual Studio</a>.
+In Carbon, this could be considered to translate to the &quot;debug&quot; and
+&quot;performance&quot; build modes by default.</p></li><li><p>The hardened build mode is added in order to emphasize security. Although
+hardened could be implemented as a set of options passed to the standard
+release build mode, the preference is to focus on it as an important
+feature.</p></li></ul><p>An example of why another build mode may be needed is
+<a href="https://clang.llvm.org/docs/ThreadSanitizer.html" target="_blank" rel="noopener noreferrer">ThreadSanitizer</a>, which is
+noted as having 5-15x slowdown and 5-10x memory overhead. This is infeasible for
+normal use, but could be useful for some users in a separate build mode. A
+trade-off that&#x27;s possible for Carbon is instead using an approach similar to
+<a href="https://github.com/google/ktsan/wiki/KCSAN" target="_blank" rel="noopener noreferrer">KCSAN</a> which offers relatively
+inexpensive but lower-probability race detection.</p><p>Although options to these build modes may be supported to customize deployments,
+the preference is to focus on a small set and make them behave well. For
+example, if a separate build mode is added for ThreadSanitizer, it should be
+considered a temporary solution until it can be merged into the debug build
+mode.</p><p>Advantages:</p><ul><li>Grants more flexibility for using build modes as a solution to problems.<ul><li>With safety checks, this would allow providing safety checks that are
+high overhead but also high detection rate as separate build modes.</li><li>With other systems, there could be non-safety performance versus
+behavior trade-offs.</li></ul></li></ul><p>Disadvantages:</p><ul><li>Having standard modes simplifies validation of interactions between various
+safety checks.<ul><li>Safety is the only reason that&#x27;s been considered for adding build modes.</li></ul></li><li>As more build modes are added, the chance of developers being confused and
+choosing the wrong build mode for their application increases.</li></ul><p>Any long-term additions to the set of build modes will need to update this
+principle, raising the visibility and requiring more consideration of such an
+addition. If build modes are added for non-safety-related reasons, this may lead
+to moving build modes out of the safety strategy.</p><p><strong>Experiment</strong>: This can be considered an experiment. Carbon may eventually add
+more than the initial three build modes, although the reticence to add more is
+likely to remain.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/carbon-language/carbon-lang/blob/trunk/docs/../docs/project/principles/safety_strategy.md" target="_blank" rel="noreferrer noopener" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages navigation"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/project/principles/one_way/"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Principle: Prefer providing only one way to do a given thing</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/project/principles/static_open_extension/"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Principle: One static open extension mechanism</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#table-of-contents" class="table-of-contents__link toc-highlight">Table of contents</a></li><li><a href="#background" class="table-of-contents__link toc-highlight">Background</a><ul><li><a href="#what-safety-means-in-carbon" class="table-of-contents__link toc-highlight">What &quot;safety&quot; means in Carbon</a></li><li><a href="#safety-guarantees-versus-hardening" class="table-of-contents__link toc-highlight">Safety guarantees versus hardening</a></li></ul></li><li><a href="#philosophy" class="table-of-contents__link toc-highlight">Philosophy</a></li><li><a href="#principles" class="table-of-contents__link toc-highlight">Principles</a></li><li><a href="#details" class="table-of-contents__link toc-highlight">Details</a><ul><li><a href="#incremental-work-when-safety-requires-work" class="table-of-contents__link toc-highlight">Incremental work when safety requires work</a></li><li><a href="#using-build-modes-to-manage-safety-checks" class="table-of-contents__link toc-highlight">Using build modes to manage safety checks</a></li><li><a href="#managing-bugs-without-compile-time-safety" class="table-of-contents__link toc-highlight">Managing bugs without compile-time safety</a></li></ul></li><li><a href="#caveats" class="table-of-contents__link toc-highlight">Caveats</a><ul><li><a href="#probabilistic-techniques-likely-cannot-stop-attacks" class="table-of-contents__link toc-highlight">Probabilistic techniques likely cannot stop attacks</a></li></ul></li><li><a href="#alternatives-considered" class="table-of-contents__link toc-highlight">Alternatives considered</a><ul><li><a href="#guaranteed-memory-safety-programming-models" class="table-of-contents__link toc-highlight">Guaranteed memory safety programming models</a></li><li><a href="#build-mode-names" class="table-of-contents__link toc-highlight">Build mode names</a></li><li><a href="#performance-versus-safety-in-the-hardened-build-mode" class="table-of-contents__link toc-highlight">Performance versus safety in the hardened build mode</a></li><li><a href="#add-more-build-modes" class="table-of-contents__link toc-highlight">Add more build modes</a></li></ul></li></ul></div></div></div></div></main></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/carbon-language/carbon-lang" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://discord.gg/ZjVdShJDAs" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://github.com/carbon-language/carbon-lang/blob/trunk/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer" class="footer__link-item">Code of Conduct<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div></div></footer></div>
+<script src="/assets/js/runtime~main.576a8e32.js"></script>
+<script src="/assets/js/main.52935302.js"></script>
+</body>
+</html>
